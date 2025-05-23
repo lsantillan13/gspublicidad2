@@ -1,0 +1,35 @@
+.metal-bg {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+  }
+  
+  .gold-text {
+    background: linear-gradient(135deg, #d4af37 0%, #f9e076 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .logo-divider {
+    height: 50px;
+    width: 1px;
+    background: linear-gradient(transparent, #d4af37, transparent);
+  }
+  
+  .social-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    transition: all 0.3s ease;
+  }
+  
+  .social-btn:hover {
+    background: #d4af37;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+  }
