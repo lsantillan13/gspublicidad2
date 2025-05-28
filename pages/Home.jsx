@@ -13,6 +13,7 @@ import PromocionaTuEmpresa from '../components/catalogo/PromocionaTuEmpresa.jsx'
 import Hogar from '../components/catalogo/Hogar.jsx'
 import Hospitalario from '../components/catalogo/Hospitalario.jsx'
 import Geder from '../components/Geder.jsx'
+import Header from '../components/Header.jsx'
 
 function Home() {
   return (

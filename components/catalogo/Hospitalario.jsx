@@ -15,7 +15,7 @@ function Hospitalario() {
                 <div class="flex items-center justify-center mb-4">
                   <div class="w-16 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
                   <h2 class="mx-4 text-4xl md:text-5xl font-bold text-gray-900">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">ARTÍCULOS</span> HOSPITALARIOS
+                    <span class="text-transparent bg-clip-text text-blue-500 text-5xl">ARTÍCULOS</span> HOSPITALARIOS
                   </h2>
                   <div class="w-16 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
                 </div>

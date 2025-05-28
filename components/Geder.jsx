@@ -1,13 +1,16 @@
 import React from 'react'
+import './Geder.css'; // Assuming you have a CSS file for styles
+import { Link } from 'react-router';
 
 function Geder() {
   return (
-    <header class="fixed w-full z-50 bg-opacity-90 backdrop-blur-md bg-[#fcfdfc] border-b-gray-300 shadow-md">
+    <header class="fixed w-full z-50  bg-[#fcfdfc] border-b-yellow-600 shadow-lg">
         {/* <!-- Banner horizontal compacto --> */}
-        <div class="metal-bg py-3 flex items-center justify-center border-t border-b border-yellow-600">
+        <div class="metal-bg py-2 flex items-center justify-center border-t border-b border-yellow-600">
           <div class="container mx-auto flex items-center justify-center px-4">
             {/* <!-- Contenedor izquierdo (logo + texto) --> */}
             <div class="flex items-center">
+              <Link to="/" class="flex items-center">
               {/* <!-- Logo izquierdo --> */}
               <img src="https://i.postimg.cc/t4nPqS4N/logo.png" alt="Logo GS" class="h-10 md:h-12 mr-2 md:mr-4" />
               
@@ -15,7 +18,7 @@ function Geder() {
               <div class="logo-divider mx-2 md:mx-4"></div>
               
               {/* <!-- Texto principal --> */}
-              <h1 class="text-xl md:text-2xl font-bold gold-text uppercase tracking-tight md:tracking-wider font-['Montserrat'] whitespace-nowrap">
+              <h1 class="text-xl md:text-2xl font-bold gold-text uppercase tracking-tight md:tracking-wider font-montserrat font-['Montserrat'] whitespace-nowrap">
                 GS SOLUCIONES EN PUBLICIDAD GRÁFICA
               </h1>
               
@@ -24,21 +27,22 @@ function Geder() {
               
               {/* <!-- Logo derecho --> */}
               <img src="https://i.postimg.cc/t4nPqS4N/logo.png" alt="Logo GS" class="h-10 md:h-12 mr-4 md:mr-8" />
+              </Link>
             </div>
       
             {/* <!-- Redes sociales --> */}
             <div class="flex items-center space-x-2 md:space-x-3 ml-4 absolute right-4 md:right-8">
               <a href="#" class="social-btn hover:bg-blue-600 hover:text-white">
-                <i class="fab fa-facebook-f text-xs"></i>
+                <i class="fab fa-facebook-f text-md text-black"></i>
               </a>
               <a href="#" class="social-btn hover:bg-pink-600 hover:text-white">
-                <i class="fab fa-instagram text-xs"></i>
+                <i class="fab fa-instagram text-md text-black"></i>
               </a>
               <a href="#" class="social-btn hover:bg-green-500 hover:text-white">
-                <i class="fab fa-whatsapp text-xs"></i>
+                <i class="fab fa-whatsapp text-md text-black"></i>
               </a>
               <a href="#" class="social-btn hover:bg-blue-700 hover:text-white">
-                <i class="fab fa-linkedin-in text-xs"></i>
+                <i class="fab fa-linkedin-in text-md text-black"></i>
               </a>
             </div>
           </div>
@@ -66,7 +70,7 @@ function Geder() {
             <a href="/all-products" class="text-gray-700 hover:text-blue-700 font-bold px-2 py-1 border-b-2 border-transparent hover:border-blue-600 transition-all">
               PRODUCTOS
             </a>
-            <a href="/egresados" class="text-gray-700 hover:text-yellow-700 font-bold px-2 py-1 border-b-2 border-transparent hover:border-yellow-600 transition-all">
+            <a href="/egresados-y-mayoristas" class="text-gray-700 hover:text-yellow-700 font-bold px-2 py-1 border-b-2 border-transparent hover:border-yellow-600 transition-all">
               EGRESADOS / MAYORISTAS
             </a>
             <a href="/con-tu-logo" class="text-gray-700 hover:text-yellow-700 font-bold px-2 py-1 border-b-2 border-transparent hover:border-yellow-600 transition-all">

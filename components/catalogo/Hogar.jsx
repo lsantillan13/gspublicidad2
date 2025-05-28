@@ -17,7 +17,7 @@ function Hogar() {
                 <div class="flex items-center justify-center mb-6">
                   <div class="w-16 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
                   <h2 class="mx-4 text-4xl md:text-5xl font-bold text-gray-900 mt-8">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">ARTÍCULOS</span> PARA EL HOGAR
+                    <span class="bg-clip-text text-5xl  text-purple-500">ARTÍCULOS</span> PARA EL HOGAR
                   </h2>
                   <div class="w-16 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
                 </div>

@@ -33,10 +33,10 @@ const NuevosIngresos = () => {
   return (
 
     <section id="background">
-      <section className="w-full py-8 relative mx-auto p-16 bg-black/20 " id="">
+      <section className="w-full py-8 relative mx-auto p-24 bg-black/20 " id="">
       
         <div className="pt-6 mt-24 relative py-8">
-                <h2 className="hero-title text-center text-white text-2xl p-3">¡Nuevos <span className="hero-subtitle text-3xl">Ingresos!</span></h2>
+                <h2 className="hero-title text-center text-white text-2xl p-3">¡Nuevos <span className="hero-subtitle text-4xl">Ingresos!</span></h2>
                 <div className="divider"></div>
         </div>
 

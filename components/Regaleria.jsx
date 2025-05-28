@@ -26,13 +26,13 @@ const categorias = [
 const Regaleria = () => {
   return (
     <section className="gift-section saturate-150">
-        <section className=" drop-shadow-3xl  bg-[#0c0f1c]/40 text-center text-white py-12">
+        <section className=" drop-shadow-3xl  bg-[#0c0f1c]/40 text-center text-white py-16 px-6 mx-auto">
         <h2 className="text-6xl font-bold tracking-wider text-cyan-500">REGALOS</h2>
         <p className="text-5xl font-semibold text-blue-400 mb-12 underline underline-offset-4">CON TU LOGO</p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-items-center max-w-6xl mx-auto mb-12">
             {categorias.map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center gap-3">
-                <div className="w-36 h-36 rounded-full bg-[#1b1f2e] overflow-hidden flex items-center justify-center">
+            <div key={idx} className="flex flex-col items-center gap-7">
+                <div className="w-46 h-46 rounded-full bg-[#1b1f2e] overflow-hidden flex items-center justify-center">
                 <img src={item.imagen} alt={item.nombre} className="w-full h-full object-cover rounded-full" />
                 </div>
                 <p className="text-sm w-max text-gray-100 font-semibold box-shadow-lg bg-black/80 px-2 py-1 text-center">

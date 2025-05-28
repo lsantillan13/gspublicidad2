@@ -20,14 +20,14 @@ const destacados = [
 
 const ProductosDestacados = () => {
   return (
-    <section className="py-4 pb-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+    <section className="py-4 pb-8 px-4 sm:px-6 lg:px-36 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {destacados.map((producto, idx) => (
           <div key={idx} className="bg-white rounded-lg shadow-md overflow-hidden">
             <img
               src={producto.imagen}
               alt={producto.nombre}
-              className="w-full h-48 object-cover"
+              className="w-full h-56 object-cover"
             />
             <div className="p-4">
               <h3 className="text-lg font-bold mb-2">{producto.nombre}</h3>

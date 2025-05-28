@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+header {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.gold-text {
+  color: #facc15; /* Vibrant yellow for brand consistency */
+}
+
+.logo-divider {
+  height: 2rem;
+  width: 1px;
+  background-color: #facc15;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 768px) {
+  .social-btn {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+    white-space: normal;
+    text-align: center;
+  }
+}

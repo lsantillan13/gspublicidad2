@@ -36,13 +36,13 @@ function PromocionaTuEmpresa() {
                   <div class="text-center mb-16">
                     <h2 class="text-5xl md:text-7xl lg:text-6xl font-bebas tracking-tighter mb-0">
                       <span class="text-stroke text-7xl">PROMOCIONÁ</span>
-                      <span class="block text-7xl text-blue-600 font-bold bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">TU EMPRESA</span>
+                      <span class="block text-7xl text-blue-500 font-bold bg-clip-text">TU EMPRESA</span>
                     </h2>
                     <div class="w-48 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto my-2"></div>
                   </div>
             
                   {/* <!-- Categorías con Imágenes Circulares --> */}
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
                     {/* <!-- Banderas --> */}
                     <div class="group relative flex flex-col items-center">
                       <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-500/30 group-hover:border-blue-400 transition-all duration-300 mb-6 shadow-xl">
