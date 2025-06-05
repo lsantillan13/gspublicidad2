@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Geder from '../components/Geder';
 import Footer from '../components/Footer';
 

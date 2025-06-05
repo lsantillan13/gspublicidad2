@@ -113,10 +113,6 @@
         .gold-text {
             color: #c0a062;
         }
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(192, 160, 98, 0.3), transparent);
-        }
 
           .text-stroke {
             -webkit-text-stroke: 1px rgba(255,255,255,0.3);

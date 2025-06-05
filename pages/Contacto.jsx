@@ -30,14 +30,15 @@ const Contact = () => {
   return (
     <>
     <Geder/>
-    <section className="py-16 min-h-screen pt-40">
+    <section className="py-16 min-h-screen pt-32 md:pt-40">
+            <div className="block md:hidden w-100 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-4"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-8 font-['Montserrat'] uppercase tracking-tight"
+          className="text-3xl sm:text-4xl font-bold text-center text-gray-800 my-3 font-['Montserrat'] uppercase tracking-tight"
           >
           Contáctanos
         </motion.h2>
@@ -45,7 +46,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center text-gray-600 mb-12 text-sm sm:text-base max-w-2xl mx-auto"
+          className="text-center text-gray-600 mb-2 text-sm sm:text-base max-w-2xl mx-auto"
         >
           Estamos aquí para ayudarte con tus proyectos de publicidad gráfica. Completa el formulario o contáctanos directamente por teléfono, correo o redes sociales.
         </motion.p>
@@ -198,8 +199,8 @@ const Contact = () => {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                   </svg>
-                  <a href="tel:02994453005" className="hover:text-blue-600 transition-colors">
-                    0299 4453005
+                  <a href="tel:+549299549-9076" className="hover:text-blue-600 transition-colors">
+                    +54 9 2995 49-9076
                   </a>
                 </li>
                 <li className="flex items-center text-gray-600">

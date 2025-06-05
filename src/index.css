@@ -1,5 +1,25 @@
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"); */
+
+
+:root {
+  --font-oswald: "Oswald", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-bebas-neue: "Bebas Neue", sans-serif;
+}
+.font-oswald {
+  font-family: var(--font-oswald);
+}
+.font-roboto {
+  font-family: var(--font-roboto);
+} 
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+.font-bebas-neue {
+  font-family: var(--font-bebas-neue);
+}
 
 * {
   box-sizing: border-box;
@@ -10,4 +30,3 @@
   line-height: 1.5;
   color: black;
 }
-

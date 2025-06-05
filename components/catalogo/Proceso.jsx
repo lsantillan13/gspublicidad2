@@ -1,56 +1,80 @@
-import React from 'react'
+import React from 'react';
+
+const PROCESS_STEPS = [
+  {
+    id: 1,
+    number: "1",
+    title: "Consulta",
+    description: "Analizamos tus necesidades",
+    showArrow: true
+  },
+  {
+    id: 2,
+    number: "2",
+    title: "Diseño",
+    description: "Creamos propuestas personalizadas",
+    showArrow: true
+  },
+  {
+    id: 3,
+    number: "3",
+    title: "Entrega",
+    description: "Recibís tu producto terminado",
+    showArrow: false
+  }
+];
 
 function Proceso() {
   return (
-            <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    CÓMO TRABAJAMOS
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Un proceso simple para resultados extraordinarios
-                </p>
+    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-16">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          CÓMO TRABAJAMOS
+        </h2>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Un proceso simple para resultados extraordinarios
+        </p>
+      </div>
+      
+      {/* Process steps */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {PROCESS_STEPS.map((step, index) => (
+          <React.Fragment key={step.id}>
+            {/* Step card */}
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow duration-300">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 text-2xl font-bold">{step.number}</span>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+              <p className="text-gray-600 text-sm">{step.description}</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-blue-600 text-2xl font-bold">1</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Consulta</h3>
-                    <p class="text-gray-600 text-sm">Analizamos tus necesidades</p>
-                </div>
-                
-                <div class="flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-blue-600 text-2xl font-bold">2</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Diseño</h3>
-                    <p class="text-gray-600 text-sm">Creamos propuestas personalizadas</p>
-                </div>
-                
-                <div class="flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-blue-600 text-2xl font-bold">3</span>
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">Entrega</h3>
-                    <p class="text-gray-600 text-sm">Recibís tu producto terminado</p>
-                </div>
-            </div>
-        </section>
-  )
+            {/* Arrow (except after last step) */}
+            {step.showArrow && (
+              <div className="flex items-center justify-center">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-8 w-8 text-gray-400 hidden md:block" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </section>
+  );
 }
 
-export default Proceso
+export default React.memo(Proceso);

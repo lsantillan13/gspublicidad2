@@ -73,8 +73,9 @@ const FAQ = () => {
   return (
     <>
     <Geder/>
-    <section className=" py-16 md:pt-44">
+    <section className=" py-16 pt-32 md:pt-40">
       <div className="container mx-auto px-6">
+            <div className="block md:hidden w-100 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-4"></div>
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-8 font-['Montserrat'] uppercase tracking-tight">
           Preguntas Frecuentes
         </h2>

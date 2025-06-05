@@ -1,7 +1,7 @@
 // pages/AdminPage.jsx
 import { useState } from 'react';
-import Dashboard from '../components/Dashboard';
-import Preview from '../components/Preview';
+import Dashboard from '../components/Dashboard.jsx';
+import Preview from '../components/Preview.jsx';
 
 const initialSections = [
   {

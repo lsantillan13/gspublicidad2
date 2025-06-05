@@ -1,4 +1,4 @@
-export default Navigation = () => {
+function Navigation () {
     return (
         <header class="fixed w-full z-50 bg-opacity-90 backdrop-blur-md py-3 px-6 bg-[#fcfdfc] border-b-gray-300 shadow-md">
             <div class="flex justify-center pb-4">
@@ -42,3 +42,5 @@ export default Navigation = () => {
         </header>
     );
 };
+
+export default Navigation;

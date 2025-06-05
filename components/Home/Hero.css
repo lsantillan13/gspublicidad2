@@ -19,7 +19,7 @@
   
   .hero {
     position: relative;
-    height: 100vh;
+    height: auto;
     min-height: 600px;
     color: var(--light);
     display: flex;
@@ -112,10 +112,6 @@
         }
         .gold-text {
             color: #c0a062;
-        }
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(192, 160, 98, 0.3), transparent);
         }
 
           .text-stroke {
@@ -275,7 +271,7 @@ body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 }
 
 .hero-title {
-    font-size: clamp(1.2rem, 2vw, 2.5rem);
+    
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;

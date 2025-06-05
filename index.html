@@ -1,22 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GS Publicidad | Soluciones Gráficas Textil</title>
+
+    <!-- Favicon y Apple Touch Icon -->
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/k41Lq6Dn/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.postimg.cc/2jtgtZPG/favicon-32x32.png">
+
+    <!-- Manifest y color de tema para PWA -->
+    <!-- <link rel="manifest" href="/assets/icons/site.webmanifest"> -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SEO y Social -->
+    <meta name="description" content="Con más de 30 años de experiencia, ofrecemos soluciones gráficas con tecnología de punta y producción propia en la Patagonia." />
+    <meta property="og:title" content="GS Publicidad | Soluciones Gráficas Textil" />
+    <meta property="og:description" content="Con más de 30 años de experiencia, ofrecemos soluciones gráficas con tecnología de punta y producción propia en la Patagonia." />
+    <meta property="og:image" content="https://i.postimg.cc/43DncT1d/image-removebg-preview-1.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="http://www.gspublicidad.com.ar" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://i.postimg.cc/43DncT1d/image-removebg-preview-1.png" />
+    <meta name="twitter:title" content="GS Publicidad | Soluciones Gráficas Textil" />
+    <meta name="twitter:description" content="Con más de 30 años de experiencia, ofrecemos soluciones gráficas con tecnología de punta y producción propia en la Patagonia." />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (con preload y preconnect bien configurado) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <title>Vite + React</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Meta PWA (comentados por si se habilita después) -->
+    <!--
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="GS Publicidad | Soluciones Gráficas Textil">
+    -->
   </head>
-  <body>
+  <body class="bg-white text-black">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- JS principal -->
+    <script type="module" src="/src/main.jsx" crossorigin></script>
   </body>
 </html>

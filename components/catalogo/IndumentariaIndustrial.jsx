@@ -1,4 +1,5 @@
 import React from 'react';
+import './Industrial.css'; // Assuming you have a CSS file for styles
 
 const categorias = [
   {
@@ -33,18 +34,21 @@ const categorias = [
 
 const IndumentariaIndustrial = () => {
   return (
-    <section className="font-roboto metal-bg text-gray-200 py-16 px-6  mx-auto">
-      <div className="text-center mb-12 ">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-oswald font-bold mb-2 p-6">
-          <span class="text-6xl text-white">INDUMENTARIA INDUSTRIAL</span>
-          <span className="block gold-text text-6xl">DE ALTO DESEMPEÑO</span>
-        </h2>
-        <div className="divider w-1/3 mx-auto my-2"></div>
-        <br></br>        <p className="text-2xl text-gray-300 mx-auto font-bold">
+    <section className="font-roboto metal-bg text-gray-200 py-44 pb-14">
+      <section className="max-w-7xl mx-auto">
+
+
+      <div className="text-center mb-6">
+        <span className="text-2xl md:text-5xl lg:text-7xl font-oswald font-bold mb-0 md:mb-2">
+          <h2 className="text-white w-auto md:w-auto">INDUMENTARIA INDUSTRIAL</h2>
+          <h2 className="block gold-text">DE ALTO DESEMPEÑO</h2>
+        </span>
+        <div className="divider w-1/3 mx-auto"></div>
+        <br></br>        <p className="text-md md:text-3xl text-gray-200 md:text-gray-300 mx-auto font-bold">
           Soluciones textiles profesionales para las industrias más exigentes
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-36">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categorias.map((item, idx) => (
           <div
             key={idx}
@@ -52,7 +56,7 @@ const IndumentariaIndustrial = () => {
           >
             <img src={item.imagen} className="w-full h-full object-cover" alt={item.nombre} />
             <div className="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end text-white">
-              <span className="text-3xl font-oswald font-bold gold-text">{item.nombre}</span>
+              <span className="text-4xl font-bold gold-text">{item.nombre}</span>
               <h2 className="text-sm font-oswald text-white font-bold mb-2">{item.descripcion}</h2>
               <a href="#" className="inline-flex items-center mt-6 text-sm tracking-wider gold-text font-bold group">
                 VER PRODUCTOS
@@ -70,7 +74,7 @@ const IndumentariaIndustrial = () => {
         </span>
       </div>
       </div>
-
+      </section>
     </section>
   );
 };
