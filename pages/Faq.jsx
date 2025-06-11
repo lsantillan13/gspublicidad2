@@ -72,122 +72,147 @@ const FAQ = () => {
 
   return (
     <>
-    <Geder/>
-    <section className=" py-16 pt-32 md:pt-40">
-      <div className="container mx-auto px-6">
-            <div className="block md:hidden w-100 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-4"></div>
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-8 font-['Montserrat'] uppercase tracking-tight">
-          Preguntas Frecuentes
-        </h2>
+      <Geder />
+      <section className="py-16 pt-32 md:pt-40 min-h-screen bg-[#354c69] relative overflow-hidden">
+        {/* Fondo decorativo suave */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#e6ecf4] via-[#dbe6f3] to-[#f7f7fa] opacity-100" />
+          <svg className="absolute inset-0 w-full h-full" width="100%" height="100%" viewBox="0 0 1440 900" fill="none">
+            <defs>
+              <linearGradient id="faqLineGrad" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#bfa046" />
+                <stop offset="1" stopColor="#0ea5e9" />
+              </linearGradient>
+            </defs>
+            {[...Array(4)].map((_, i) => (
+              <line
+                key={i}
+                x1={0}
+                y1={200 + i * 160}
+                x2={1440}
+                y2={120 + i * 160}
+                stroke="url(#faqLineGrad)"
+                strokeWidth="1"
+                opacity="0.04"
+              />
+            ))}
+          </svg>
+          <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-br from-[#bfa046]/10 to-transparent blur-2xl" />
+          <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-gradient-to-tr from-[#0ea5e9]/10 to-transparent blur-2xl" />
+        </div>
 
-        {/* Search Bar */}
-        <div className="max-w-xl mx-auto mb-8">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Busca tu pregunta..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-gray-800 placeholder-gray-400"
-            />
-            <svg
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-white mb-8 font-['Montserrat'] uppercase tracking-tight">
+            Preguntas Frecuentes
+          </h2>
+
+          {/* Search Bar */}
+          <div className="max-w-xl mx-auto mb-8">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Busca tu pregunta..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full placeholder:text-black placeholder:font-thin px-4 py-3 rounded-lg border border-[#bfa046]/30 bg-white/70 text-[#232b3e] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#bfa046] shadow-sm transition-all duration-300"
+              />
+              <svg
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#bfa046]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
-            </svg>
+              </svg>
+            </div>
+          </div>
+
+          {/* FAQ List */}
+          <div className="max-w-3xl mx-auto">
+            <AnimatePresence>
+              {filteredFaqs.length > 0 ? (
+                filteredFaqs.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-4"
+                  >
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full text-left py-4 px-6 flex justify-between items-center focus:outline-none group rounded-xl bg-white/70 border border-[#bfa046]/20 shadow hover:shadow-md transition-all"
+                    >
+                      <span className="text-lg md:text-xl font-semibold text-[#232b3e] group-hover:text-[#bfa046] transition-colors">
+                        {faq.question}
+                      </span>
+                      <motion.svg
+                        className="w-6 h-6 text-[#bfa046]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </motion.svg>
+                    </button>
+                    <AnimatePresence>
+                      {activeIndex === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="px-6 py-4 pb-4 text-[#232b3e] text-base md:text-lg bg-white/90 -top-1 z-0 relative rounded-b-xl rounded-t-sm"
+                        >
+                          {faq.answer}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))
+              ) : (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-center text-[#fff] text-lg"
+                >
+                  No se encontraron resultados para tu búsqueda.
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <p className="text-[#fff] mb-4">
+              ¿No encontraste la respuesta que buscabas?
+            </p>
+            <a
+              href="/contacto"
+              className="inline-block px-6 py-3 bg-[#bfa046] text-[#232b3e] font-semibold rounded-lg hover:bg-cyan-600 hover:text-white transition-colors shadow-md duration-150"
+            >
+              Contáctanos
+            </a>
           </div>
         </div>
-
-        {/* FAQ List */}
-        <div className="max-w-3xl mx-auto">
-          <AnimatePresence>
-            {filteredFaqs.length > 0 ? (
-                filteredFaqs.map((faq, index) => (
-                    <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="mb-4 border-b border-gray-300"
-                  >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full text-left py-4 flex justify-between items-center focus:outline-none group"
-                    >
-                    <span className="text-lg md:text-xl font-semibold text-gray-800 group-hover:text-gray-00 transition-colors">
-                      {faq.question}
-                    </span>
-                    <motion.svg
-                      className="w-6 h-6 text-gray-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      animate={{ rotate: activeIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </motion.svg>
-                  </button>
-                  <AnimatePresence>
-                    {activeIndex === index && (
-                        <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="pb-4 text-gray-600 text-base md:text-lg"
-                        >
-                        {faq.answer}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))
-            ) : (
-              <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="text-center text-gray-600 text-lg"
-              >
-                No se encontraron resultados para tu búsqueda.
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            ¿No encontraste la respuesta que buscabas?
-          </p>
-          <a
-            href="/contacto"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-            >
-            Contáctanos
-          </a>
-        </div>
-      </div>
-    </section>
-              <Footer/>
-              </>
+      </section>
+      <Footer />
+    </>
   );
 };
 

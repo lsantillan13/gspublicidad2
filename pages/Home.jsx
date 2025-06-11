@@ -22,6 +22,7 @@ import Proceso from '../components/catalogo/Proceso.jsx';
 import Footer from '../components/Footer.jsx'
 import NuevosIngresos from '../components/Home/Hero.jsx'
 import Header from '../components/Header.jsx'
+import Seguridad from '../components/Seguridad.jsx'; // Importación del componente
 
 function Home() {
   return (
@@ -30,7 +31,9 @@ function Home() {
       <Geder />
       {/* <NuevosIngresos /> */}
       <Hero />
+      {/* Ubico Seguridad después del Hero, antes de los catálogos */}
       <IndumentariaIndustrial />
+      <Seguridad />
       <IndumentariaDeportiva />
       <HeroEgresados />
       <Regaleria />

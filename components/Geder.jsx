@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Geder.css';
 
+
 // Constants for URLs and icons to avoid repetition
 const SOCIAL_LINKS = [
   {
@@ -29,6 +30,8 @@ const NAV_ITEMS = [
   { path: "/faq", label: "FAQ", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
   { path: "/contacto", label: "CONTACTO", hoverClass: "hover:text-blue-700 hover:border-blue-600" }
 ];
+
+const BTN = './btn.png'; // Assuming this is the path to your button image
 
 function Geder() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -131,25 +134,29 @@ function Geder() {
           ))}
         </nav>
         
-        {/* Acciones derecha */}
-        <div className="flex justify-between mx-auto w-100  space-x-2 sm:-space-x-1 py-1">
-          <button 
-            className="text-gray-600 hover:text-blue-600 transition-colors md:hidden"
-            aria-label="Mobile search"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-          
-          <button 
-            className="text-gray-600 hover:text-blue-600 transition-colors"
-            aria-label="Login"
-          >
-            <img src="./btn.png" alt="Login" className="h-6 w-6 sm:h-6 sm:w-6" loading="lazy" />
-          </button>
-          
-          {/* Menú hamburguesa móvil */}
+        {/* /* Acciones derecha */ }
+          <div className="flex justify-between mx-auto w-100  space-x-2 sm:-space-x-1 py-1">
+            <button 
+              className="text-gray-600 hover:text-blue-600 transition-colors md:hidden"
+              aria-label="Mobile search"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+            
+            <Link to="/admin" className="hidden md:block">
+            <button 
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              aria-label="Login"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
+              </svg>
+            </button>
+              </Link>
+            
+            {/* Menú hamburguesa móvil */}
           <button 
             className="md:hidden text-gray-600 p-4 focus:outline-none"
             onClick={toggleMobileMenu}

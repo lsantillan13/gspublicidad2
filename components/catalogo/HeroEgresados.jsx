@@ -33,7 +33,7 @@ function HeroEgresados() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-indigo-900 to-purple-900">
+    <section className="relative h-auto py-40 w-full overflow-hidden bg-gradient-to-br from-indigo-900 to-purple-900">
       {/* Efecto de partículas (optimizado) */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(30)].map((_, i) => (
@@ -101,9 +101,7 @@ function HeroEgresados() {
 
       {/* Efecto de scroll (opcional) */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+
       </div>
 
       {/* Estilos CSS-in-JS para las animaciones */}

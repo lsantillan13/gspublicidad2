@@ -12,8 +12,8 @@ const galleryItems = [
   { src: null, alt: '', caption: '' }, // Placeholder for the first item
   { src: 'https://i.postimg.cc/C5FyWxgd/del-prado.jpg', alt: 'Camiseta con Logo', caption: 'Camisetas Personalizadas' },
   { src: 'https://i.postimg.cc/pX46qxPt/mate-acero-c-logo-full-color.jpg', alt: 'Camiseta con Logo', caption: 'Hogar y Tiempo Libre' },
-  { src: 'https://i.postimg.cc/QdnSJ4nv/image.png', alt: 'Taza con Logo', caption: 'Regalos Corporativos' },
-  { src: 'https://i.postimg.cc/Kv57hTWZ/image-1.jpg', alt: 'Bolso con Logo', caption: 'Marroquinería, Bolsos y Mochilas' },
+  { src: 'https://i.postimg.cc/rmPrdb86/image.png', alt: 'Taza con Logo', caption: 'Regalos Corporativos' },
+  { src: 'https://i.postimg.cc/Vks82hFc/Copilot-20250605-182029.png', alt: 'Bolso con Logo', caption: 'Marroquinería, Bolsos y Mochilas' },
   { src: 'https://i.postimg.cc/L6KqJ1Rf/3aeaf4c5-8604-47fd-85de-76af98862c1f.jpg', alt: 'Bolso con Logo', caption: 'Folletería y Carpetas' },
   // { src: 'https://i.postimg.cc/3Rk6Czhb/aea9e78c-2751-4c8c-bf93-9e2bcbe45750.jpg', alt: 'Medalla con Logo', caption: 'Medallas Y Trofeos' },
   { src: 'https://i.postimg.cc/sDHxDyZq/513af302-0b4a-45dc-ba1b-bb89a88b9a3f.jpg', alt: 'Medalla con Logo', caption: 'Placas, Trofeos y Medallas' },
@@ -59,7 +59,7 @@ const InfiniteGalleryCarousel = () => {
           }}
         >
           {items.map((item, idx) => (
-            <Link to={`${item.caption.toLowerCase().replace(/\s+/g, '-')}`} className={`my-6 mx-4 w-64 flex-shrink-0 shadow-md rounded-lg hover:shadow-2xl ${item.src == null ? 'invisible w-[2px]' : 'ring-1 ring-black/30 hover:ring-yellow-600 hover:ring-2'}`}>
+            <section className={`my-6 mx-4 w-64 flex-shrink-0 shadow-md rounded-lg hover:shadow-2xl ${item.src == null ? 'invisible w-[2px]' : 'ring-1 ring-black/30 hover:ring-yellow-600 hover:ring-2'}`}>
             <div
             key={idx}
             className=""
@@ -78,7 +78,7 @@ const InfiniteGalleryCarousel = () => {
                 </div>
               </div>
             </div>
-              </Link>
+              </section>
           ))}
         </div>
         {/* Animación CSS */}

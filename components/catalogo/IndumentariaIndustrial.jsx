@@ -34,7 +34,7 @@ const categorias = [
 
 const IndumentariaIndustrial = () => {
   return (
-    <section className="font-roboto metal-bg text-gray-200 py-44 pb-14">
+    <section className="font-roboto metal-bg text-gray-200 py-24 pb-14">
       <section className="max-w-7xl mx-auto">
 
 

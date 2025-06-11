@@ -108,7 +108,7 @@ const EgresadosMayoristas = () => {
     { src: 'https://i.postimg.cc/qqk7vQpB/image.png', alt: 'Buzo de Egresados', caption: 'Buzos para Egresados' },
     { src: 'https://i.postimg.cc/qMfTvW5Q/image.png', alt: 'Taza Corporativa', caption: 'Regalos Corporativos' },
     { src: 'https://i.postimg.cc/D0r8QN03/image-8.jpg', alt: 'Cartel Mayorista', caption: 'Cartelería Mayorista' },
-    { src: 'https://i.postimg.cc/Kv57hTWZ/image-1.jpg', alt: 'Bolsa Personalizada', caption: 'Marroquinería' },
+    { src: 'https://i.postimg.cc/Vks82hFc/Copilot-20250605-182029.png', alt: 'Bolsa Personalizada', caption: 'Marroquinería' },
     { src: 'https://i.postimg.cc/MX2xFqsr/Buzo-circus-rompeviento-impermeable.jpg', alt: 'Campera alta montaña', caption: 'Camperas y Canguros Alta Montaña' },
     { src: 'https://i.postimg.cc/s2VWLRqX/6f9aeaca-0d6a-43b9-8b1a-0b0cd23a98ed.jpg', alt: 'Campera friza algodón', caption: 'Camperas y Canguros Friza Algodón' },
     { src: 'https://i.postimg.cc/gcqnf7yL/Campera-laycra-termica-sublimada.jpg', alt: 'Campera sublimada', caption: 'Camperas y Canguros Sublimadas Full Color' },
@@ -255,12 +255,13 @@ const EgresadosMayoristas = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 border-t-4 border-yellow-400"
+            className="max-w-3xl mx-auto bg-[#181e29] rounded-xl shadow-lg p-6 sm:p-8 border-t-4 border-yellow-400"
           >
-            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center font-['Montserrat']">Solicita una Cotización</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <h3 className="text-xl font-bold text-[#fbbf24] mb-6 text-center font-['Montserrat']">Solicita una Cotización</h3>
+            <form onSubmit={handleSubmit} className="space-y-6 ">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-[#fbbf24] mb-2">
                   Nombre *
                 </label>
                 <input
@@ -270,12 +271,12 @@ const EgresadosMayoristas = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-gray-50 shadow-sm transition-all duration-300 hover:border-blue-500"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-[#181e29]/60  shadow-sm transition-all duration-300 hover:border-blue-500"
                   placeholder="Tu nombre completo"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-[#fbbf24] mb-2">
                   Correo Electrónico *
                 </label>
                 <input
@@ -285,12 +286,12 @@ const EgresadosMayoristas = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-gray-50 shadow-sm transition-all duration-300 hover:border-blue-500"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-[#181e29]/60  shadow-sm transition-all duration-300 hover:border-blue-500"
                   placeholder="tuemail@ejemplo.com"
                 />
               </div>
               <div>
-                <label htmlFor="type" className="block text-sm font-semibold text-gray-800 mb-2">
+                <label htmlFor="type" className="block text-sm font-semibold text-[#fbbf24] mb-2">
                   Tipo de Cliente *
                 </label>
                 <select
@@ -299,14 +300,14 @@ const EgresadosMayoristas = () => {
                   value={formData.type}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 bg-gray-50 shadow-sm transition-all duration-300 hover:border-blue-500"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-[#181e29]/60  shadow-sm transition-all duration-300 hover:border-blue-500"
                 >
-                  <option value="egresados">Egresados</option>
+                  <option value="egresados" className="placeholder:text-white">Egresados</option>
                   <option value="mayoristas">Mayoristas</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="quantity" className="block text-sm font-semibold text-gray-800 mb-2">
+                <label htmlFor="quantity" className="block text-sm font-semibold text-[#fbbf24] mb-2">
                   Cantidad Estimada
                 </label>
                 <input
@@ -315,12 +316,12 @@ const EgresadosMayoristas = () => {
                   name="quantity"
                   value={formData.quantity}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-gray-50 shadow-sm transition-all duration-300 hover:border-blue-500"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-[#181e29]/60  shadow-sm transition-all duration-300 hover:border-blue-500"
                   placeholder="Ej: 50 unidades"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-800 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-[#fbbf24] mb-2">
                   Detalles del Proyecto *
                 </label>
                 <textarea
@@ -330,7 +331,7 @@ const EgresadosMayoristas = () => {
                   onChange={handleInputChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-gray-50 shadow-sm transition-all duration-300 hover:border-blue-500"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800 placeholder-gray-400 bg-[#181e29]/60  shadow-sm transition-all duration-300 hover:border-blue-500"
                   placeholder="Describe tu proyecto..."
                 />
               </div>

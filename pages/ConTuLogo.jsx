@@ -27,7 +27,7 @@ const DesignsWithYourLogo = () => {
     },
     {
       title: 'Producción y Entrega',
-      description: 'Una vez aprobado, producimos tu pedido con la más alta calidad y lo entregamos en 7-15 días hábiles, o más rápido con servicio express.',
+      description: 'Una vez aprobado el diseño personalizado, producimos tu pedido con la más alta calidad a entregar en la fecha pactada con nuestro vendedor/a.',
       icon: (
         <svg className="h-10 w-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
