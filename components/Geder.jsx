@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Geder.css';
+import {useNavigate} from 'react-router-dom';
+
 
 
 // Constants for URLs and icons to avoid repetition
@@ -25,10 +27,11 @@ const SOCIAL_LINKS = [
 const NAV_ITEMS = [
   { path: "/", label: "HOME", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
   { path: "/all-products", label: "PRODUCTOS", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
-  { path: "/egresados-y-mayoristas", label: "EGRESADOS / MAYORISTAS", hoverClass: "hover:text-yellow-600 hover:border-yellow-600" },
-  { path: "/con-tu-logo", label: "DISEÑOS CON TU LOGO", hoverClass: "hover:text-yellow-600 hover:border-yellow-600" },
+  { path: "/egresados-y-mayoristas", label: "EGRESADOS", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
+  { path: "/all-products", label: "SERVICIOS", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
+  { path: "/about", label: "QUIENES SOMOS", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
+  { path: "/contacto", label: "CONTACTO", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
   { path: "/faq", label: "FAQ", hoverClass: "hover:text-blue-700 hover:border-blue-600" },
-  { path: "/contacto", label: "CONTACTO", hoverClass: "hover:text-blue-700 hover:border-blue-600" }
 ];
 
 const BTN = './btn.png'; // Assuming this is the path to your button image
@@ -36,6 +39,7 @@ const BTN = './btn.png'; // Assuming this is the path to your button image
 function Geder() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +53,16 @@ function Geder() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleLoginClick = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      navigate('/admin', { replace: true }); // Redirige al panel de administración si ya está autenticado
+    } else {
+      navigate('/login', { replace: true }); // Redirige a la página de inicio de sesión si no está autenticadof
+    }
+  }
+
   return (
     <header className={`fixed w-screen md:py-0 z-50 mb-0 bg-[#fcfdfc] border-b-yellow-600 shadow-lg transition-all duration-300 ${isScrolled ? 'py-0' : ''}`}>
       {/* Banner horizontal compacto */}
@@ -61,7 +75,7 @@ function Geder() {
               <img 
                 src="https://i.postimg.cc/t4nPqS4N/logo.png" 
                 alt="Logo GS" 
-                className="h-8 sm:h-10 md:h-12 mr-1 sm:mr-2 md:mr-4"
+                className="h-16 sm:h-10 md:h-12 mr-1 sm:mr-2 md:mr-4"
                 loading="lazy"
               />
               
@@ -69,8 +83,9 @@ function Geder() {
               <div className="hidden sm:block logo-dividerc bg-yellow-400/60  sm:mx-2 md:mx-4"></div>
               
               {/* Texto principal - ajustado para móvil */}
-              <h1 className="text-xs sm:text-xl md:text-2xl font-bold text-yellow-500 uppercase tracking-tight sm:tracking-wider font-montserrat whitespace-nowrap">
-                GS SOLUCIONES EN PUBLICIDAD GRÁFICA
+              
+              <h1 className="text-xs sm:text-xl md:text-2xl font-bold text-yellow-500 uppercase tracking-tight sm:tracking-wider font-montserrat whitespace-nowrap justify-center flex items-center">
+                SOLUCIONES EN PUBLICIDAD GRÁFICA
               </h1>
               
               {/* Divisor - oculto en móvil */}
@@ -127,7 +142,7 @@ function Geder() {
             <Link
               key={index}
               to={item.path}
-              className={`text-gray-700 text-sm md:text-sm xl:text-lg font-semibold px-0 lg:px-2 py-1 border-b-2 border-transparent transition-all ${item.hoverClass}`}
+              className={`text-gray-700 text-sm md:text-sm xl:text-xl font-semibold px-0 lg:px-2 py-1 border-b-2 border-transparent transition-all ${item.hoverClass}`}
             >
               {item.label}
             </Link>
@@ -145,16 +160,15 @@ function Geder() {
               </svg>
             </button>
             
-            <Link to="/admin" className="hidden md:block">
             <button 
               className="text-gray-600 hover:text-blue-600 transition-colors"
               aria-label="Login"
+              onClick={handleLoginClick}
               >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
               </svg>
             </button>
-              </Link>
             
             {/* Menú hamburguesa móvil */}
           <button 

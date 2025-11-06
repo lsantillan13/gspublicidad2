@@ -37,7 +37,7 @@ const Seguridad = () => (
       <h3 className="text-lg md:text-xl text-gray-600 mb-8 text-center font-semibold tracking-wide font-['Montserrat']">
         Elementos esenciales para la seguridad personal en distintos entornos laborales.
       </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="w-64 md:w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {items.map((item, idx) => (
           <div
             key={idx}

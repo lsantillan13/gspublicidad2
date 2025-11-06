@@ -1,47 +1,64 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Hero() {
+
   const galleryItems = [
     { 
       src: 'https://i.postimg.cc/59qwPgq8/Copilot-20250605-185201.png', 
       alt: 'Mameluco Gabardina 6 y 8oz', 
       caption: 'Mameluco Gabardina 6 y 8oz',
-      category: 'Indumentaria Laboral'
+      category: 'Indumentaria Laboral',
+      id: 1
     },
     { 
       src: 'https://i.postimg.cc/DyDy1WpR/image.png', 
       alt: 'Camiseta con Logo', 
       caption: 'Pantalón Cargo Ripstop Anti Desgarro',
-      category: 'Indumentaria Laboral'
+      category: 'Indumentaria Laboral',
+      id: '648b1f4f9c1a4e001c8e4a1a'
     },
     { 
       src: 'https://i.postimg.cc/pL9wN5SP/Chomba-pique-de-trabajo-y-pantal-n-cargo-tela-antidesgarro-con-bolsillos-laterales.jpg', 
       alt: 'Pantalón Cargo Gabardina', 
       caption: 'Pantalón Cargo Gabardina',
-      category: 'Indumentaria Laboral'
+      category: 'Indumentaria Laboral',
+      id: '648b1f4f9c1a4e001c8e4a1a'
     },
     { 
       src: 'https://i.postimg.cc/dQfLjSLW/image.png', 
       alt: 'Campera Trucker Azul Marino', 
       caption: 'Campera Trucker Azul Marino',
-      category: 'Indumentaria Laboral' 
+      category: 'Indumentaria Laboral' ,
+      id: 2
     },
     { 
       src: 'https://i.postimg.cc/ZRHfDbjp/image.png', 
       alt: 'Campera 3 en 1 Calidad Premium',
       caption: 'Campera 3 en 1 Calidad Premium',
-      category: 'Indumentaria Laboral'
+      category: 'Indumentaria Laboral',
+      id: '648b1f4f9c1a4e001c8e4a1a'
     },
     { 
       src: 'https://i.postimg.cc/jj9r5hyL/image.png', 
       alt: 'Valija Carry On / Cabina',
       caption: 'Valija Carry On / Cabina',
-      category: 'Viajes y Accesorios' 
+      category: 'Viajes y Accesorios' ,
+      id: '648b1f4f9c1a4e001c8e4a1a'
     }
   ];
 
+  const [products, setProducts] = useState([]);
+
   const marqueeRef = useRef(null);
+
+
+  useEffect(() => {
+    fetch('https://gsnode.onrender.com/api/products')
+      .then(response => response.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
 
   useEffect(() => {
     const marquee = marqueeRef.current;
@@ -56,7 +73,16 @@ function Hero() {
     };
   }, []);
 
-  const carouselItems = [...galleryItems, ...galleryItems];
+  const carouselItems = [products[0], products[1], products[2], products[3], products[4], products[5]].map((product, index) => {
+    if (!product) return null;
+    return {
+      src: product.imageUrl,
+      alt: product.name,
+      caption: product.name,
+      category: product.category,
+      id: product._id
+    };
+  });
 
   return (
     <section className="relative py-4 min-h-[92vh] flex flex-col justify-center items-center overflow-hidden bg-[#181e29] top-12">
@@ -90,11 +116,11 @@ function Hero() {
       </div>
 
       {/* Card central sobria */}
-      <div className="relative z-10 mt-2  mb-12 px-10 py-2 w-max w-full text-center rounded-2xl">
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#fbbf24] mb-6 uppercase">
-          <i className="text-white text-4xl md:text-5xl font-black not-italic tracking-tight mb-2 uppercase">¡Descubrí los Nuevos</i> Ingresos!
+      <div className="relative z-10 mt-4 md:mt-2  mb-2 md:mb-12 px-10 py-2 w-max w-full text-center rounded-2xl">
+        <h2 className="text-xl md:text-5xl font-black tracking-tight text-[#fbbf24] mb-2 md:mb-6 uppercase">
+          <i className="text-white text-xl md:text-5xl font-black not-italic tracking-tight mb-2 uppercase">¡Descubrí los Nuevos</i> Ingresos!
         </h2>
-        <h3 className='text-3xl md:text-4xl w-100 font-black tracking-tight text-gray-300/90 mb-2 uppercase'>Encontrá la mejor opción para vos</h3>
+        <h3 className='text-md md:text-4xl w-100 font-black tracking-tight text-gray-300/90 mb-2 uppercase'>Encontrá la mejor opción para vos</h3>
       </div>
       {/* Carousel destacado */}
       <div className="relative z-10 w-full w-3/4 mx-auto overflow-hidden rounded-2xl shadow-xl backdrop-blur-lg animate-fadein delay-300">
@@ -106,12 +132,13 @@ function Hero() {
           }}
         >
           {carouselItems.map((item, idx) => (
-            item.src && (
+            item && (
+<Link to={`/producto/${item.id}`} key={idx}>
               <div
                 key={`${idx}-${item.caption}`}
-                className="group w-64 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#181e29]/80 border border-[#bfa046]/10"
+                className="group w-44 md:w-64 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#181e29]/80 border border-[#bfa046]/10"
               >
-                <div className="relative h-80 w-full">
+                <div className="relative h-72 md:h-80 w-full">
                   <img
                     src={item.src}
                     alt={item.alt}
@@ -128,12 +155,13 @@ function Hero() {
                   </div>
                 </div>
               </div>
+</Link>
             )
           ))}
         </div>
       <Link
         to="/productos"
-        className="inline-block px-8 py-3 font-bold text-base rounded-full bg-[#bfa046] text-black shadow-md hover:bg-[#0ea5e9] hover:text-white transition-colors duration-300 tracking-wide uppercase flex justify-center mt-10 font-['Montserrat']"
+        className="inline-block mx-4 md:mx-8 px-8 py-3 font-bold text-base rounded-full bg-[#bfa046] text-black shadow-md hover:bg-[#0ea5e9] hover:text-white transition-colors duration-300 tracking-wide uppercase flex justify-center mt-10 font-['Montserrat']"
       >
         Ver Catálogo completo
       </Link>

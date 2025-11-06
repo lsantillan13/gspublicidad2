@@ -48,13 +48,13 @@ const IndumentariaIndustrial = () => {
           Soluciones textiles profesionales para las industrias más exigentes
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-8">
         {categorias.map((item, idx) => (
           <div
             key={idx}
             className="metal-card relative rounded-lg overflow-hidden hover-scale shine-effect metal-accent"
           >
-            <img src={item.imagen} className="w-full h-full object-cover" alt={item.nombre} />
+            <img src={item.imagen} className="w-full h-64 md:h-full object-cover" alt={item.nombre} />
             <div className="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end text-white">
               <span className="text-4xl font-bold gold-text">{item.nombre}</span>
               <h2 className="text-sm font-oswald text-white font-bold mb-2">{item.descripcion}</h2>
