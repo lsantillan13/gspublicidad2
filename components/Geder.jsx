@@ -150,7 +150,7 @@ function Geder() {
         </nav>
         
         {/* /* Acciones derecha */ }
-          <div className="flex justify-between mx-auto w-100  space-x-2 sm:-space-x-1 py-1">
+          <div className="flex justify-around bg-red-500 mx-auto w-full md:w-auto  space-x-2 sm:-space-x-1 py-1">
             <button 
               className="text-gray-600 hover:text-blue-600 transition-colors md:hidden"
               aria-label="Mobile search"
@@ -160,8 +160,9 @@ function Geder() {
               </svg>
             </button>
             
+            {}
             <button 
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-gray-600 hover:text-blue-600 transition-colors hidden md:block"
               aria-label="Login"
               onClick={handleLoginClick}
               >

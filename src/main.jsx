@@ -43,7 +43,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="egresados-y-mayoristas2" element={<EgresadosMayoristas2 />} />
 
         {/* PÁGINA DE PRODUCTOS */}
-        <Route path="/all-products" element={<Productos />} />
+        <Route path="/productos" element={<Productos />} />
 
         {/* PÁGINA DE PRODUCTO */}
         <Route path="/producto/:id" element={<ProductDetail />} />

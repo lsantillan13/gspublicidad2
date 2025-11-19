@@ -85,7 +85,7 @@ function Hero() {
   });
 
   return (
-    <section className="relative py-4 min-h-[92vh] flex flex-col justify-center items-center overflow-hidden bg-[#181e29] top-12">
+    <section className="container-xs  px-42 metal-bg bg-gradient-to-r from-zinc-900 via-stone-900 to-zinc-900  relative h-auto flex flex-col justify-center items-center overflow-hidden  bg-[#fcfdfc] top-32 mb-32">
       {/* Fondo geométrico sutil */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-[#232b3e] via-[#181e29] to-[#232b3e] opacity-100" />
@@ -116,36 +116,42 @@ function Hero() {
       </div>
 
       {/* Card central sobria */}
-      <div className="relative z-10 mt-4 md:mt-2  mb-2 md:mb-12 px-10 py-2 w-max w-full text-center rounded-2xl">
-        <h2 className="text-xl md:text-5xl font-black tracking-tight text-[#fbbf24] mb-2 md:mb-6 uppercase">
-          <i className="text-white text-xl md:text-5xl font-black not-italic tracking-tight mb-2 uppercase">¡Descubrí los Nuevos</i> Ingresos!
+      <div className="relative z-10 mt-0 md:mt-2  mb-2 md:mb-12 px-10 py-2 w-max w-full text-center rounded-2xl">
+        <h2 className="text-xl md:text-5xl font-black tracking-tight text-yellow-500 mb-0 md:mb-2 uppercase">
+          <i className="text-white text-xl md:text-5xl font-black not-italic tracking-tight mb-2 uppercase">¡Novedades y</i> Oportunidades!
         </h2>
-        <h3 className='text-md md:text-4xl w-100 font-black tracking-tight text-gray-300/90 mb-2 uppercase'>Encontrá la mejor opción para vos</h3>
+        <h3 className='text-md md:text-4xl w-100 font-black tracking-tight text-gray-200/80 mb-2 uppercase'>Tenemos lo que necesitás</h3>
       </div>
       {/* Carousel destacado */}
-      <div className="relative z-10 w-full w-3/4 mx-auto overflow-hidden rounded-2xl shadow-xl backdrop-blur-lg animate-fadein delay-300">
+      <div className="relative z-10 w-full w-3/4 mx-auto overflow-hidden rounded-2xl shadow-xl backdrop-blur-lg animate-fadein delay-300
+      
+
+      ">
         <div
           ref={marqueeRef}
-          className="flex w-max gap-8 py-2"
+          className="flex w-max gap-6 py-2 ml-24"
           style={{
-            animation: 'marquee 36s linear infinite',
+            animation: 'marquee 7s linear infinite',
           }}
-        >
+          >
           {carouselItems.map((item, idx) => (
             item && (
-<Link to={`/producto/${item.id}`} key={idx}>
+              <Link to={`/producto/${item.id}`} key={idx}>
               <div
                 key={`${idx}-${item.caption}`}
-                className="group w-44 md:w-64 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#181e29]/80 border border-[#bfa046]/10"
-              >
+                className="group w-44 md:w-64 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 
+                
+
+                    outline outline-2 outline-yellow-400/40"
+                >
                 <div className="relative h-72 md:h-80 w-full">
                   <img
                     src={item.src}
                     alt={item.alt}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     draggable={false}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[#181e29]/90 via-transparent to-transparent">
+                    />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t  via-transparent to-transparent">
                     <span className="inline-block px-3 py-1 bg-[#bfa046] text-[#232b3e] text-xs font-bold rounded-full mb-2 shadow">
                       {item.category}
                     </span>
@@ -161,10 +167,33 @@ function Hero() {
         </div>
       <Link
         to="/productos"
-        className="inline-block mx-4 md:mx-8 px-8 py-3 font-bold text-base rounded-full bg-[#bfa046] text-black shadow-md hover:bg-[#0ea5e9] hover:text-white transition-colors duration-300 tracking-wide uppercase flex justify-center mt-10 font-['Montserrat']"
+        className="inline-block mx-4 md:mx-8 px-8 py-3 font-bold text-base rounded-full
+        shadow-md tracking-wide uppercase flex justify-center mt-10
+        font-['Montserrat'] text-white
+        bg-linear-to-r from-yellow-800/90 to-slate-300
+        bg-[length:200%_200%] animate-gradientflow
+        bg-neutral-700 bg-yellow-500/60
+
+
+    transition-all duration-300 ease-out
+    active:scale-100"
       >
-        Ver Catálogo completo
+        Ver Todo
       </Link>
+
+      {/* 👇 NUEVO ELEMENTO: Flecha de Desplazamiento 👇 */}
+    <div className="flex justify-center mt-10 pb-10">
+        <svg 
+            className="w-8 h-8 text-[#bfa046] animate-bounce" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="white"
+            strokeWidth="5"
+        >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+    </div>
       </div>
 
 

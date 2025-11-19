@@ -23,30 +23,55 @@ import Footer from '../components/Footer.jsx'
 import NuevosIngresos from '../components/Home/Hero.jsx'
 import Header from '../components/Header.jsx'
 import Seguridad from '../components/Seguridad.jsx'; // Importación del componente
+import IndustrialClothingHero from '../components/Flyers/IndustrialClothingHero.jsx';
+import CorporateGiftsHero from '../components/Flyers/CorporateGiftsHero.jsx';
+import PromotionalProductsHero from '../components/Flyers/PromotionalProductsHero.jsx';
+import SportswearHero from '../components/Flyers/SportswearHero.jsx';
+import GraduatesHero from '../components/Flyers/GraduatesHero.jsx';
+import WorkJacketsHero from '../components/Flyers/WorkJacketsHero.jsx';
+import UmbrellasFlagsHero from '../components/Flyers/UmbrellasFlagsHero.jsx';
+import CapsHatsHero from '../components/Flyers/CapsHatsHero.jsx';
+import BusinessGiftSection from '../components/BusinessGiftsSection.jsx';
+import SportHero from '../components/Regaleria.jsx';
 
 function Home() {
   return (
-    <div>
+    <section className="container-xl">
       {/* <Navbar/> */}
       <Geder />
-      {/* <NuevosIngresos /> */}
-      <Hero />
+      <NuevosIngresos />
+      {/* 1 */}
+      <BusinessGiftSection />
+      {/* 2 */}
+      < PromotionalProductsHero />
+      {/* 3 */}
+      < GraduatesHero />
+      {/*  */}
+      {/* <IndumentariaIndustrial /> */}
+      <PromocionaTuEmpresa />
+      {/* <Carteleria /> */}
+      <SportHero /> 
+      < CapsHatsHero />
+     < UmbrellasFlagsHero /> 
+      <IndustrialClothingHero />
+      <NosElijen />
+      {/* 
+      Termos
+      Set materos
+      */}
+      {/* <Hero /> */}
       {/* Ubico Seguridad después del Hero, antes de los catálogos */}
-      <IndumentariaIndustrial />
-      <Seguridad />
+      {/* <Seguridad />
       <IndumentariaDeportiva />
       <HeroEgresados />
-      <Regaleria />
-      <PromocionaTuEmpresa />
       <Hogar />
       <Hospitalario />
-      <Carteleria />
       <Marroquineria />
-      <NosElijen />
       <Proceso />
+      <Footer /> */}
       {/* <Whatsapp/> */}
-      <Footer />
-    </div>
+
+    </section>
   )
 }
 
