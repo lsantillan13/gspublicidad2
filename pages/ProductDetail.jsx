@@ -208,7 +208,7 @@ Perfecta para:
       setLoading(true);
       try {
         await new Promise(resolve => setTimeout(resolve, 800));
-        const foundProduct = fetchedProducts._id === id;
+        const foundProduct = fetchedProducts._id == id;
         setProduct(foundProduct);
         if (foundProduct?.colors?.length) {
           setSelectedColor(foundProduct.colors[0].name);

@@ -108,7 +108,7 @@ function PromocionaTuEmpresa() {
             {/* Header */}
             <div className="text-center mb-16">
               <h2 className=" tracking-tighter ">
-                <span className="text-stroke text-5xl md:text-7xl">PROMOCIONÁ</span>
+                <span className="text-blue-700  text-5xl md:text-7xl">PROMOCIONÁ</span>
                 <span className="block text-5xl md:text-7xl text-blue-500 font-bold bg-clip-text">TU EMPRESA</span>
               </h2>
               <div className="w-48 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto my-2"></div>

@@ -32,7 +32,10 @@ import WorkJacketsHero from '../components/Flyers/WorkJacketsHero.jsx';
 import UmbrellasFlagsHero from '../components/Flyers/UmbrellasFlagsHero.jsx';
 import CapsHatsHero from '../components/Flyers/CapsHatsHero.jsx';
 import BusinessGiftSection from '../components/BusinessGiftsSection.jsx';
-import SportHero from '../components/Regaleria.jsx';
+import ShirtsWindbreakersHero from '../components/Flyers/ShirtsWindbreakersHero.jsx';
+import BagsVestsHero from '../components/Flyers/BagsVestsHero.JSX';
+import Whatsapp from './Whatsapp.jsx';
+// import SportHero from '../components/Regaleria.jsx';
 
 function Home() {
   return (
@@ -50,7 +53,9 @@ function Home() {
       {/* <IndumentariaIndustrial /> */}
       <PromocionaTuEmpresa />
       {/* <Carteleria /> */}
-      <SportHero /> 
+      <SportswearHero /> 
+      <ShirtsWindbreakersHero />
+      <BagsVestsHero/>
       < CapsHatsHero />
      < UmbrellasFlagsHero /> 
       <IndustrialClothingHero />
@@ -67,9 +72,9 @@ function Home() {
       <Hogar />
       <Hospitalario />
       <Marroquineria />
-      <Proceso />
-      <Footer /> */}
-      {/* <Whatsapp/> */}
+      <Proceso />      */}
+      <Footer /> 
+      <Whatsapp/>
 
     </section>
   )

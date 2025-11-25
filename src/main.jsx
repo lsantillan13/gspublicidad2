@@ -21,6 +21,7 @@ import Productos from '../pages/Productos.jsx';
 import Search from '../pages/Search.jsx';
 import Whatsapp from '../pages/Whatsapp.jsx';
 import ProductDetail from '../pages/ProductDetail.jsx';
+import Categorias from '../components/UI-UX/Categorias.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -45,11 +46,14 @@ createRoot(document.getElementById('root')).render(
         {/* PÁGINA DE PRODUCTOS */}
         <Route path="/productos" element={<Productos />} />
 
+        {/* PÁGINA DE CATEGORÍAS */}
+        <Route path="/categoria" element={<Categorias />} />
+
         {/* PÁGINA DE PRODUCTO */}
         <Route path="/producto/:id" element={<ProductDetail />} />
 
         {/* PÁGINA DE CATEGORÍA */}
-        <Route path="/plp/:category/" element={<ProductDetail />} />
+        {/* <Route path="/plp/:category/" element={<ProductDetail />} /> */}
 
 
 

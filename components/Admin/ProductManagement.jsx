@@ -32,7 +32,7 @@ const ProductManagement = () => {
     }
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(import.meta.env.VITE_API_KEY, {
         headers: {
           'Content-Type': 'application/json'
         }

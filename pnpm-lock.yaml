@@ -35,6 +35,9 @@ dependencies:
   axios:
     specifier: ^1.10.0
     version: 1.10.0
+  dotenv:
+    specifier: ^17.2.3
+    version: 17.2.3
   framer-motion:
     specifier: ^12.15.0
     version: 12.15.0(react-dom@19.1.0)(react@19.1.0)
@@ -1218,6 +1221,11 @@ packages:
   /detect-libc@2.0.3:
     resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
     engines: {node: '>=8'}
+    dev: false
+
+  /dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
     dev: false
 
   /dunder-proto@1.0.1:

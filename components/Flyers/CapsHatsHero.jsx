@@ -1,170 +1,211 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const CATEGORIES = [
+  {
+    id: 1,
+    title: "PILUSOS",
+    imageUrl: "https://production.cdn.vaypol.com/variants/lq8t96hnfmamoyezl5mxi23s56ve/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4",
+    link: "/productos/pilusos"
+  },
+  {
+    id: 2,
+    title: "GORROS",
+    imageUrl: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop",
+    link: "/productos/gorros"
+  },
+  {
+    id: 3,
+    title: "SOMBREROS",
+    imageUrl: "http://gspublicidad.com.ar/wp-content/uploads/2017/06/sombrero_pampero_pampa_portada.jpg",
+    link: "/productos/sombreros"
+  }
+];
+
+const ANIMATED_LIGHTS = [
+  {
+    id: 'amber',
+    position: 'top-1/4 -left-20',
+    size: 'w-96 h-96',
+    color: 'bg-amber-600/25',
+    animation: 'animate-float-amber'
+  },
+  {
+    id: 'brown',
+    position: 'bottom-1/4 -right-20',
+    size: 'w-96 h-96',
+    color: 'bg-amber-900/20',
+    animation: 'animate-float-brown'
+  },
+  {
+    id: 'gold',
+    position: 'top-1/3 right-1/4',
+    size: 'w-64 h-64',
+    color: 'bg-yellow-500/15',
+    animation: 'animate-float-gold'
+  }
+];
+
+const FLOATING_ELEMENTS = [
+  {
+    id: 1,
+    position: 'top-20 left-10',
+    size: 'w-40 h-40',
+    gradient: 'bg-gradient-to-r from-amber-600/25 to-yellow-600/20',
+    animation: 'animate-float'
+  },
+  {
+    id: 2,
+    position: 'bottom-32 right-16',
+    size: 'w-60 h-60',
+    gradient: 'bg-gradient-to-r from-amber-400/15 to-orange-500/10',
+    animation: 'animate-float delay-1000'
+  }
+];
+
+// Efectos de sombreros flotantes decorativos
+const FLOATING_HATS = [
+  {
+    id: 1,
+    type: '👒',
+    position: 'top-10 left-20',
+    animation: 'animate-bounce-slow delay-300',
+    size: 'text-4xl'
+  },
+  {
+    id: 2,
+    type: '🧢',
+    position: 'top-40 right-24',
+    animation: 'animate-bounce-slow delay-700',
+    size: 'text-3xl'
+  },
+  {
+    id: 3,
+    type: '🎩',
+    position: 'bottom-20 left-32',
+    animation: 'animate-bounce-slow delay-500',
+    size: 'text-5xl'
+  }
+];
 
 const CapsHatsHero = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Gorras Personalizadas",
-      description: "Gorras de calidad con tu logo bordado",
-      image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop",
-      price: "Desde $12.990",
-      features: ["Ajuste regulable", "Bordado premium", "Multiple colores"]
-    },
-    {
-      id: 2,
-      name: "Pilusos Deportivos",
-      description: "Ideales para equipos y eventos",
-      image: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&h=300&fit=crop",
-      price: "Desde $8.990",
-      features: ["Tela transpirable", "Secado rápido", "Unisex"]
-    },
-    {
-      id: 3,
-      name: "Sombreros de Paja",
-      description: "Protección solar elegante",
-      image: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=400&h=300&fit=crop",
-      price: "Desde $18.990",
-      features: ["Material natural", "Protección UV", "Tallas S/M/L"]
-    },
-    {
-      id: 4,
-      name: "Gorras Trucker",
-      description: "Estilo clásico con malla trasera",
-      image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop",
-      price: "Desde $15.990",
-      features: ["Malla transpirable", "Frente rígido", "Ajuste perfecto"]
-    }
-  ];
-
-  const customizationOptions = [
-    {
-      icon: "🧵",
-      title: "Bordado",
-      description: "Logo de alta definición"
-    },
-    {
-      icon: "🎨",
-      title: "Estampado",
-      description: "Full color y detalles"
-    },
-    {
-      icon: "📏",
-      title: "Talles",
-      description: "Ajuste perfecto para todos"
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-[url(https://i.postimg.cc/76CjHFV4/3d-vintage-style-image-sand-ocean-landscape.jpg)]  bg-no-repeat bg-cover from-gray-50 to-gray-100 py-8">
-      <div className="container mx-auto px-4">
+    <section className="font-montserrat bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-amber-900 w-full h-auto mx-auto">
+      <div className="relative w-full h-full overflow-hidden">
+        {/* Base cálida */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50"></div>
         
-        {/* Header Simple */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Gorras • Pilusos • Sombreros
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Personalizá tu estilo con nuestros modelos premium
-          </p>
-        </div>
-
-        {/* Products Grid */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
-          {products.map((product) => (
+        {/* Animated lights cálidas */}
+        {ANIMATED_LIGHTS.map(light => (
+          <div 
+            key={light.id}
+            className={`absolute ${light.position} ${light.size} ${light.color} rounded-full filter blur-3xl mix-blend-multiply opacity-60 ${light.animation}`}
+          ></div>
+        ))}
+        
+        {/* Hero Section */}
+        <section className="relative min-h-screen py-16 px-4 overflow-hidden flex items-center">
+          {/* Textura sutil */}
+          <div className="absolute inset-0 z-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30"></div>
+          </div>
+          
+          {/* Floating elements cálidos */}
+          {FLOATING_ELEMENTS.map(element => (
             <div 
-              key={product.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-[280px] border border-gray-200"
+              key={element.id}
+              className={`absolute ${element.position} ${element.size} rounded-full ${element.gradient} blur-xl ${element.animation} opacity-40`}
+            ></div>
+          ))}
+          
+          {/* Sombreros flotantes decorativos */}
+          {FLOATING_HATS.map(hat => (
+            <div 
+              key={hat.id}
+              className={`absolute ${hat.position} ${hat.size} ${hat.animation} opacity-20 pointer-events-none`}
             >
-              {/* Product Image */}
-              <div className="h-40 overflow-hidden rounded-t-xl">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              
-              {/* Product Info */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600 text-sm mb-3">
-                  {product.description}
-                </p>
-                
-                {/* Features */}
-                <div className="space-y-1 mb-4">
-                  {product.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-700 text-xs">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Price & CTA */}
-                <div className="flex items-center justify-between">
-                  <span className="text-md font-bold text-green-600">
-                    {product.price}
-                  </span>
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors">
-                    Pedir
-                  </button>
-                </div>
-              </div>
+              {hat.type}
             </div>
           ))}
-        </div>
-
-        {/* Customization Options */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {customizationOptions.map((option, index) => (
-            <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-gray-200 text-center w-full sm:w-auto">
-              <div className="text-2xl mb-2">{option.icon}</div>
-              <h3 className="font-semibold text-gray-800 mb-1">{option.title}</h3>
-              <p className="text-gray-600 text-xs">{option.description}</p>
+          
+          {/* Main content */}
+          <div className="mx-auto relative z-10 h-full w-full">
+            {/* Header con tema de gorros */}
+            <div className="text-center mb-16">
+              <h2 className="tracking-tighter mb-4">
+                <span className="block text-5xl md:text-7xl text-amber-600 font-bold bg-clip-text drop-shadow-sm">GORROS - PILUSOS - SOMBREROS</span>
+              </h2>
+              <div className="w-48 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto my-2 rounded-full"></div>
+              <p className="text-amber-700 text-lg mt-6 max-w-2xl mx-auto">
+                Descubrí nuestra exclusiva colección de accesorios para cabeza con estilo y calidad
+              </p>
             </div>
-          ))}
-        </div>
-
-        {/* Bulk Order Section */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center mb-8">
-          <h2 className="text-xl font-bold text-gray-800 mb-2">
-            ¿Pedido por volumen?
-          </h2>
-          <p className="text-gray-600 mb-4">
-            Descuentos especiales para empresas y equipos
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button className="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-              📧 Pedir Cotización
-            </button>
-            <button className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-medium py-2 px-6 rounded-lg transition-colors">
-              📞 Consultar Stock
-            </button>
+      
+            {/* Categories grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
+              {CATEGORIES.map(category => (
+                <div key={category.id} className="group relative flex flex-col items-center">
+                  <div className="h-44 w-44 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-amber-400/50 group-hover:border-amber-500 transition-all duration-300 mb-6 shadow-lg group-hover:shadow-xl bg-white/80 backdrop-blur-sm">
+                    <img 
+                      src={category.imageUrl} 
+                      alt={category.title} 
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    {/* Efecto de brillo al hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-200/0 via-amber-100/0 to-amber-300/0 group-hover:from-amber-200/20 group-hover:via-amber-100/10 group-hover:to-amber-300/15 transition-all duration-500"></div>
+                  </div>
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold mb-3 text-amber-700 group-hover:text-amber-800 transition-colors">{category.title}</h2>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Quick Info */}
-        <div className="flex flex-wrap justify-center gap-6 text-center">
-          <div className="text-sm text-gray-600">
-            <div className="font-semibold">🚚 Envíos</div>
-            <div>a todo el país</div>
-          </div>
-          <div className="text-sm text-gray-600">
-            <div className="font-semibold">⚡ Producción</div>
-            <div>5-7 días hábiles</div>
-          </div>
-          <div className="text-sm text-gray-600">
-            <div className="font-semibold">🎯 Mínimo</div>
-            <div>10 unidades</div>
-          </div>
-        </div>
-
+          
+          {/* Bottom decorative element */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-amber-50 to-transparent z-10"></div>
+        </section>
       </div>
-    </div>
+      
+      {/* Estilos de animación personalizados */}
+      <style jsx>{`
+        @keyframes float-amber {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float-brown {
+          0%, 100% { transform: translateX(0px) translateY(0px); }
+          50% { transform: translateX(10px) translateY(-15px); }
+        }
+        @keyframes float-gold {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-10px) scale(1.1); }
+        }
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-25px); }
+        }
+        .animate-float-amber {
+          animation: float-amber 8s ease-in-out infinite;
+        }
+        .animate-float-brown {
+          animation: float-brown 10s ease-in-out infinite;
+        }
+        .animate-float-gold {
+          animation: float-gold 6s ease-in-out infinite;
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 4s ease-in-out infinite;
+        }
+        .text-stroke {
+          -webkit-text-stroke: 1px #d97706;
+          text-stroke: 1px #d97706;
+          color: transparent;
+        }
+      `}</style>
+    </section>
   );
 };
 
-export default CapsHatsHero;
+export default React.memo(CapsHatsHero);

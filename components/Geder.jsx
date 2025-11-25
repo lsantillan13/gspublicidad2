@@ -150,7 +150,7 @@ function Geder() {
         </nav>
         
         {/* /* Acciones derecha */ }
-          <div className="flex justify-around bg-red-500 mx-auto w-full md:w-auto  space-x-2 sm:-space-x-1 py-1">
+          <div className="flex justify-around mx-auto w-full md:w-auto  space-x-2 sm:-space-x-1 py-1">
             <button 
               className="text-gray-600 hover:text-blue-600 transition-colors md:hidden"
               aria-label="Mobile search"

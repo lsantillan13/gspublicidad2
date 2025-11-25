@@ -5,31 +5,36 @@ const CATEGORIES = [
     id: 1,
     name: 'ASADO Y MATE',
     image: 'https://i.postimg.cc/k5bGhGfq/image.png',
-    link: '/categoria/home-deco'
+    link: '/categoria'
+    // /home-deco'
   },
   {
     id: 2,
     name: 'TERMOS Y JARROS',
     image: 'https://i.postimg.cc/QdnSJ4nv/image.png',
-    link: '/categoria/termos-vasos'
+    link: '/categoria'
+    // /termos-vasos'
   },
   {
     id: 3,
     name: 'BOTELLAS Y TAZAS',
     image: 'http://gspublicidad.com.ar/wp-content/uploads/2019/08/botella-esmerilada.jpg',
-    link: '/categoria/marroquineria'
+    link: '/categoria'
+    // /marroquineria'
   },
   {
     id: 4,
     name: 'BOLÍGRAFOS',
     image: 'https://i.postimg.cc/Njzq2x8j/image.png',
-    link: '/categoria/boligrafos'
+    link: '/categoria'
+    // /boligrafos'
   },
   {
     id: 5,
     name: 'TECNOLOGÍA',
     image: 'https://i.postimg.cc/N0dyHSJr/image.png',
-    link: '/categoria/tecnologia'
+    link: '/categoria'
+    // /tecnologia'
   }
 ];
 
