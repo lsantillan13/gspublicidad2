@@ -57,7 +57,7 @@ function Home() {
       <ShirtsWindbreakersHero />
       <BagsVestsHero/>
       < CapsHatsHero />
-     < UmbrellasFlagsHero /> 
+     {/* < UmbrellasFlagsHero />  */}
       <IndustrialClothingHero />
       <NosElijen />
       {/* 
@@ -74,7 +74,7 @@ function Home() {
       <Marroquineria />
       <Proceso />      */}
       <Footer /> 
-      <Whatsapp/>
+      {/* <Whatsapp/> */}
 
     </section>
   )

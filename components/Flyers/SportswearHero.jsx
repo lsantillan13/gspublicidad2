@@ -5,19 +5,19 @@ const SportswearHero = () => {
     {
       id: 1,
       title: "CAMISETAS DEPORTIVAS",
-      imageUrl: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=500&h=500&fit=crop",
+      imageUrl: "https://i.postimg.cc/xTCdxBzB/camiseta-en-tela-set-deportiva-sublimada-full-color.jpg",
       brands: ["FITNESS", "DEL PRADO", "INDEPENDIENTE"]
     },
     {
       id: 2,
       title: "CONJUNTOS DEPORTIVOS", 
-      imageUrl: "https://images.unsplash.com/photo-1594736797933-d0ea3ff8db41?w=500&h=500&fit=crop",
-      brands: ["ABRIL PAZOS", "PACÍFICO", "FITNESS"]
+      imageUrl: "https://i.postimg.cc/Pr4mYGjk/Camiseta-en-set-deportivo-y-pantalon-deportivo-en-laycra-termica.jpg",
+      brands: ["DEPORTES", "PACÍFICO", "FITNESS"]
     },
     {
       id: 3,
       title: "CAMPERAS Y ROMPEVIENTOS",
-      imageUrl: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop",
+      imageUrl: "https://i.postimg.cc/Xv04bPrj/DSC-2414.jpg",
       brands: ["DEPORTES", "DEL PRADO", "ABRIL PAZOS"]
     }
   ];
@@ -27,10 +27,10 @@ const SportswearHero = () => {
       <div className="container mx-auto px-6">
         
         {/* Header Minimalista */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 uppercase">
           <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
             Que tu ropa deportiva
-            <span className="block text-gray-500 text-4xl md:text-5xl mt-4">sea única</span>
+            <span className="block text-gray-500 text-4xl md:text-5xl mt-4">Sea <i className="underline underline-offset-4 not-italic text-gray-500 text-4xl md:text-5xl mt-4">única</i></span>
           </h1>
           <div className="w-24 h-0.5 bg-gray-300 mx-auto mt-8"></div>
         </div>

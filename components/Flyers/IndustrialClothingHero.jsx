@@ -88,7 +88,7 @@ const IndustrialClothingHero = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {categories.map((category, index) => (
               <div
-                key={category.id}
+                key={index}
                 className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border-2 ${
                   activeCategory === index ? 'border-slate-300 border-1' : 'border-transparent'
                 }`}

@@ -7,7 +7,7 @@ const ShirtsWindbreakersHero = () => {
       title: "JERSEY ALGODÓN",
       subtitle: "Corte Standard y Especiales",
       techniques: ["Serigrafía", "DTF Full Color"],
-      imageUrl: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop"
+      imageUrl: "https://i.postimg.cc/FRspk9fh/remera-blanca-etiq-violeta-impresa-en-DTF-full-color.jpg"
     },
     {
       id: 2,

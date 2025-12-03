@@ -22,6 +22,14 @@ import Search from '../pages/Search.jsx';
 import Whatsapp from '../pages/Whatsapp.jsx';
 import ProductDetail from '../pages/ProductDetail.jsx';
 import Categorias from '../components/UI-UX/Categorias.jsx';
+import Novedades from '../pages/Novedades.jsx';
+
+
+// 
+
+import ProductosEmpresariales from '../pages/ProductosEmpresariales.jsx';
+import Promocionales from '../pages/Promocionales.jsx';
+import Mercadotecnia from '../pages/Mercadotecnia.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -43,8 +51,15 @@ createRoot(document.getElementById('root')).render(
         <Route path="egresados-y-mayoristas" element={<EgresadosMayoristas />} />
         <Route path="egresados-y-mayoristas2" element={<EgresadosMayoristas2 />} />
 
+
         {/* PÁGINA DE PRODUCTOS */}
         <Route path="/productos" element={<Productos />} />
+
+        {/* PÁGINA DE NOVEDADES */}
+        <Route path="/novedades" element={<Novedades />} />
+        <Route path="/merchandising" element={<ProductosEmpresariales />} />
+        <Route path="/promocionales" element={<Promocionales />} />
+        <Route path="/mercadotecnia-y-promocionales" element={<Mercadotecnia />} />
 
         {/* PÁGINA DE CATEGORÍAS */}
         <Route path="/categoria" element={<Categorias />} />
@@ -77,6 +92,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/preview" element={<Preview />} />
       </Routes> 
     </BrowserRouter>
-    <Whatsapp/>
+    {/* <Whatsapp/> */}
   </StrictMode>,
 )

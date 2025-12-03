@@ -18,7 +18,7 @@ const ProductManagement = () => {
     sku: '',
   });
 
-  const API_URL = 'http://localhost:4000/api/products'; // <--- ¡ASEGÚRATE DE QUE ESTA URL SEA CORRECTA!
+  const API_URL = 'https://gsnode.onrender.com/api/products'; // <--- ¡ASEGÚRATE DE QUE ESTA URL SEA CORRECTA!
 
   // --- Funciones para cargar productos ---
   const fetchProducts = async () => {
@@ -187,7 +187,7 @@ const ProductManagement = () => {
         <h2 className="text-2xl font-bold text-gray-800">Gestión de Productos</h2>
         <div>
 
-        <input type="text" value="Buscar" className="px-4 py-2 bg-blue-400"/>
+        <input type="text" value="Buscar" className="px-4 py-2 bg-blue-400" onChange={() => { return }}/>
         <button
           onClick={() => handleOpenModal()}
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200"
