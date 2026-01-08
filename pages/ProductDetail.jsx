@@ -327,9 +327,9 @@ const handleThumbnailClick = (index) => {
                   {product.brand}
                 </span>
               )}
-              <span className={`text-xs font-medium px-3 py-1 rounded-full ${stockStatus.class}`}>
+              {/* <span className={`text-xs font-medium px-3 py-1 rounded-full ${stockStatus.class}`}>
                 {stockStatus.text}
-              </span>
+              </span> */}
             </div>
 
             {/* Nombre del Producto */}
@@ -359,7 +359,7 @@ const handleThumbnailClick = (index) => {
               )}
               <div>
                 <span className="text-gray-600">Stock:</span>
-                <span className="ml-2 text-gray-900 font-medium">{product.stock || 0} unidades</span>
+                {/* <span className="ml-2 text-gray-900 font-medium">{product.stock || 0} unidades</span> */}
               </div>
             </div>
 
@@ -406,7 +406,7 @@ const handleThumbnailClick = (index) => {
 
             {/* Información Adicional */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -417,7 +417,7 @@ const handleThumbnailClick = (index) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 30 días de garantía
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

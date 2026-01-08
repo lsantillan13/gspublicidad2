@@ -14,6 +14,7 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
+    font-display: swap;
     overflow-x: hidden;
   }
   
@@ -189,7 +190,7 @@
 
         :root { --primary: #FFD700; --secondary: #E63946; --third: #ffd9001f; --fourth: #e639476a;  --dark: #1A1A2E; --light: #F8F9FA; --overlay: rgba(26, 26, 46, 0.85);}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; font-display: swap;}
 
 /* Estilos de Egresados */
 /* Estilos de Nuevos Ingresos  */

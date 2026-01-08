@@ -8,7 +8,7 @@ const BagsVestsHero = () => {
         title: "BOLSOS PETROLEROS",
         description: "Confeccionamos el bolso que necesitas, con medidas y compartimientos para tus necesidades",
         features: ["Lona cobertura impermeable", "Cierres y correas de alta duración", "Compartimientos personalizados"],
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop"
+        imageUrl: "https://i.postimg.cc/TPMcjddD/D-NQ-NP-2X-795889-MLA97781784778-112025-F.png"
       }
     ],
     backpacks: [
@@ -17,7 +17,7 @@ const BagsVestsHero = () => {
         title: "MOCHILAS Y MATERAS",
         description: "Adecuadas al producto final que necesitas. Todo en marroquinería",
         features: ["Diseños personalizados", "Materiales duraderos", "Variedad de tamaños"],
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop"
+        imageUrl: "https://i.postimg.cc/G3QScycW/image.png"
       }
     ],
     documentHolders: [
@@ -26,7 +26,7 @@ const BagsVestsHero = () => {
         title: "PORTADOCUMENTOS",
         description: "Para concesionarias, inmobiliarias. Producto promocional para entregar papeles bien resguardados",
         features: ["Logo visible", "Protección de documentos", "Imagen profesional"],
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop"
+        imageUrl: "https://i.postimg.cc/K8JZBzrn/image.png"
       }
     ],
     vests: [
@@ -35,7 +35,7 @@ const BagsVestsHero = () => {
         title: "CHALECOS PERSONALIZADOS",
         description: "Realizamos todo tipo de chalecos según tu necesidad",
         features: ["Telas: impermeables, gabardina, alta montaña", "Poliamida básicos reflectivos", "Sublimación full color o bordados"],
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop"
+        imageUrl: "https://i.postimg.cc/sxNXY2rF/image.png"
       }
     ]
   };

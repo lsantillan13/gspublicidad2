@@ -2,56 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Hero() {
-  const galleryItems = [
-    { 
-      src: 'https://i.postimg.cc/59qwPgq8/Copilot-20250605-185201.png', 
-      alt: 'Mameluco Gabardina 6 y 8oz', 
-      caption: 'Mameluco Gabardina 6 y 8oz',
-      category: 'Indumentaria Laboral',
-      id: 1
-    },
-    { 
-      src: 'https://i.postimg.cc/DyDy1WpR/image.png', 
-      alt: 'Camiseta con Logo', 
-      caption: 'Pantalón Cargo Ripstop Anti Desgarro',
-      category: 'Indumentaria Laboral',
-      id: '648b1f4f9c1a4e001c8e4a1a'
-    },
-    { 
-      src: 'https://i.postimg.cc/pL9wN5SP/Chomba-pique-de-trabajo-y-pantal-n-cargo-tela-antidesgarro-con-bolsillos-laterales.jpg', 
-      alt: 'Pantalón Cargo Gabardina', 
-      caption: 'Pantalón Cargo Gabardina',
-      category: 'Indumentaria Laboral',
-      id: '648b1f4f9c1a4e001c8e4a1a'
-    },
-    { 
-      src: 'https://i.postimg.cc/dQfLjSLW/image.png', 
-      alt: 'Campera Trucker Azul Marino', 
-      caption: 'Campera Trucker Azul Marino',
-      category: 'Indumentaria Laboral' ,
-      id: 2
-    },
-    { 
-      src: 'https://i.postimg.cc/ZRHfDbjp/image.png', 
-      alt: 'Campera 3 en 1 Calidad Premium',
-      caption: 'Campera 3 en 1 Calidad Premium',
-      category: 'Indumentaria Laboral',
-      id: '648b1f4f9c1a4e001c8e4a1a'
-    },
-    { 
-      src: 'https://i.postimg.cc/jj9r5hyL/image.png', 
-      alt: 'Valija Carry On / Cabina',
-      caption: 'Valija Carry On / Cabina',
-      category: 'Viajes y Accesorios' ,
-      id: '648b1f4f9c1a4e001c8e4a1a'
-    }
-  ];
-
   const [products, setProducts] = useState([]);
   const marqueeRef = useRef(null);
 
   useEffect(() => {
-    fetch('https://gsnode.onrender.com/api/products')
+    fetch('https://gsnode.onrender.com/api/products?featuredIn=novedades')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
@@ -70,7 +25,7 @@ function Hero() {
     };
   }, []);
 
-  const carouselItems = [products[0], products[1], products[2], products[3], products[4], products[5]].map((product, index) => {
+  const carouselItems = [products[0], products[1], products[2], products[3], products[4], products[5], products[6], products[7], products[8], products[9], products[10]].map((product, index) => {
     if (!product) return null;
     return {
       src: product.imageUrl,
@@ -129,7 +84,7 @@ function Hero() {
           ref={marqueeRef}
           className="flex gap-3 sm:gap-4 md:gap-5 lg:gap-6 py-2 sm:py-3"
           style={{
-            animation: 'marquee 25s linear infinite',
+            animation: 'marquee 18s linear infinite',
           }}
         >
           {carouselItems.map((item, idx) =>
@@ -202,17 +157,17 @@ function Hero() {
         /* Responsive marquee speeds */
         @media (max-width: 640px) {
           .marquee-container {
-            animation-duration: 15s;
+            animation-duration: 10s;
           }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
           .marquee-container {
-            animation-duration: 20s;
+            animation-duration: 14s;
           }
         }
         @media (min-width: 1025px) {
           .marquee-container {
-            animation-duration: 25s;
+            animation-duration: 18s;
           }
         }
       `}</style>

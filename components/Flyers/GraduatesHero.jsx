@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 const GraduatesHero = () => {
@@ -9,27 +10,36 @@ const GraduatesHero = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('December 15, 2024 23:59:59').getTime();
+  // Promo hasta el 15 de enero a las 23:59:59
+  const targetDate = new Date('2026-01-15T23:59:59').getTime();
 
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+  const updateCountdown = () => {
+    const now = Date.now();
+    const difference = targetDate - now;
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      }
-    };
+    if (difference <= 0) {
+      setTimeLeft({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      });
+      return;
+    }
 
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
+    setTimeLeft({
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60)
+    });
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
@@ -83,7 +93,7 @@ const GraduatesHero = () => {
                 ⚠️ ¡OFERTA POR TIEMPO LIMITADO!
               </p>
               <p className="text-center text-white/90 text-sm sm:text-base mb-3 sm:mb-4">
-                Comprando antes del <span className="font-bold text-yellow-400">15 de DICIEMBRE</span>
+                Comprando antes del <span className="font-bold text-yellow-400">15 de ENERO</span>
               </p>
               
               <div className="grid grid-cols-4 gap-2 sm:gap-3 text-center">
@@ -125,9 +135,11 @@ const GraduatesHero = () => {
             </div>
 
             {/* CTA Button */}
+            <Link to="/contacto" className='block'>
             <button className="w-full bg-gradient-to-r from-yellow-500 to-pink-500 hover:from-yellow-600 hover:to-pink-600 text-white font-black py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg sm:shadow-2xl shadow-yellow-500/25">
               🎓 RESERVAR MI PACK EGRESADO
             </button>
+            </Link>
 
             <p className="text-center text-white/60 text-xs sm:text-sm">
               ⚡ Envíos a todo el país • 📦 Entrega express • 💳 Todas las tarjetas

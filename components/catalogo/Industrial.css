@@ -5,15 +5,22 @@
   --font-oswald: "Oswald", sans-serif;
   --font-roboto: "Roboto", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
+  font-display: swap;
 }
+
+
+
 .font-oswald {
   font-family: var(--font-oswald);
+  font-display: swap;
 }
 .font-roboto {
   font-family: var(--font-roboto);
+  font-display: swap;
 } 
 .font-montserrat {
   font-family: var(--font-montserrat);
+  font-display: swap;
 }
 
 
@@ -154,4 +161,4 @@
 
         :root { --primary: #FFD700; --secondary: #E63946; --third: #ffd9001f; --fourth: #e639476a;  --dark: #1A1A2E; --light: #F8F9FA; --overlay: rgba(26, 26, 46, 0.85);}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; font-display: swap;}

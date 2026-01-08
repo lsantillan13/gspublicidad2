@@ -40,10 +40,11 @@ import Whatsapp from './Whatsapp.jsx';
 function Home() {
   return (
     <section className="container-xl">
-      {/* <Navbar/> */}
+    {/* <Navbar/> */}
       <Geder />
+    {/* Novedades y Oportunidades */}
       <NuevosIngresos />
-      {/* 1 */}
+    {/* Regalos Empresariales */}
       <BusinessGiftSection />
       {/* 2 */}
       < PromotionalProductsHero />
@@ -53,13 +54,13 @@ function Home() {
       {/* <IndumentariaIndustrial /> */}
       <PromocionaTuEmpresa />
       {/* <Carteleria /> */}
-      <SportswearHero /> 
-      <ShirtsWindbreakersHero />
-      <BagsVestsHero/>
+      {/* <SportswearHero />  */}
+      {/* <ShirtsWindbreakersHero /> */}
+      {/* <BagsVestsHero/> */}
       < CapsHatsHero />
      {/* < UmbrellasFlagsHero />  */}
-      <IndustrialClothingHero />
-      <NosElijen />
+      {/* <IndustrialClothingHero /> */}
+      {/* <NosElijen /> */}
       {/* 
       Termos
       Set materos

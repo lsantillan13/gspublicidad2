@@ -24,12 +24,17 @@ import ProductDetail from '../pages/ProductDetail.jsx';
 import Categorias from '../components/UI-UX/Categorias.jsx';
 import Novedades from '../pages/Novedades.jsx';
 
+import HatCategorySelector from '../components/Flyers/ProductsContainers/HatCategorySelector.jsx';
+import HatsCatalog from '../components/Flyers/ProductsContainers/HatsCatalog.jsx';
+
 
 // 
 
 import ProductosEmpresariales from '../pages/ProductosEmpresariales.jsx';
 import Promocionales from '../pages/Promocionales.jsx';
 import Mercadotecnia from '../pages/Mercadotecnia.jsx';
+import BannersCategorySelector from '../components/Flyers/ProductsContainers/BannersCategorySelector.jsx';
+import BannersCatalog from '../components/Flyers/ProductsContainers/BannersCatalog.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -54,6 +59,13 @@ createRoot(document.getElementById('root')).render(
 
         {/* PÁGINA DE PRODUCTOS */}
         <Route path="/productos" element={<Productos />} />
+
+        {/* PÁGINA DE CATÁLOGO DE PRODUCTOS */}
+        <Route path="/catalogo/gorras/selector" element={<HatCategorySelector />} />
+        <Route path="/catalogo/gorras" element={<HatsCatalog />} />
+
+        <Route path="/catalogo/banners/selector" element={<BannersCategorySelector />} />
+        <Route path="/catalogo/banners" element={<BannersCatalog />} />
 
         {/* PÁGINA DE NOVEDADES */}
         <Route path="/novedades" element={<Novedades />} />
