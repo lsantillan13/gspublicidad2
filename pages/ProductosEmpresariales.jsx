@@ -51,7 +51,7 @@ const RegalosEmpresariales = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://gsnode.onrender.com/api/products');
+        const response = await fetch('https://gserver.zeabur.app/api/products');
         
         if (!response.ok) {
           throw new Error(`Error ${response.status}: ${response.statusText}`);

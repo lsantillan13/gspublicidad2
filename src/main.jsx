@@ -15,7 +15,7 @@ import Contacto from '../pages/Contacto.jsx';
 import ConTuLogo from '../pages/ConTuLogo.jsx';
 // import ConTuLogo2 from '../pages/ConTuLogo2.jsx';
 import FAQ from '../pages/Faq.jsx';
-import EgresadosMayoristas from '../pages/Mayoristas.jsx';
+import EgresadosCatalogo from '../pages/EgresadosCatalogo.jsx';
 import EgresadosMayoristas2 from '../pages/Mayoristas2.jsx';
 import Productos from '../pages/Productos.jsx';
 import Search from '../pages/Search.jsx';
@@ -35,6 +35,10 @@ import Promocionales from '../pages/Promocionales.jsx';
 import Mercadotecnia from '../pages/Mercadotecnia.jsx';
 import BannersCategorySelector from '../components/Flyers/ProductsContainers/BannersCategorySelector.jsx';
 import BannersCatalog from '../components/Flyers/ProductsContainers/BannersCatalog.jsx';
+import AllProducts from '../components/catalogo/AllProducts.jsx';
+import Mantenimiento from '../components/Utils/Mantenimiento.jsx';
+import RegalosEmpresarialesCatalogo from '../components/catalogo/RegalosEmpresarialesCatalogo.jsx';
+import ArticulosPromocionalesCatalogo from '../components/catalogo/ArticulosPromocionalesCatalogo.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -48,21 +52,25 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/contacto" element={< Contacto />} /> */}
         
         <Route path="/search" element={<Search/>} />
-        <Route path="/about" element={<App />} />
+        <Route path="/about" element={<Mantenimiento/>} />
+        <Route path="/servicios" element={<Mantenimiento/>} />
         <Route path="/FAQ" element={<FAQ />}/>
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/con-tu-logo" element={<ConTuLogo />} />
         {/* <Route path="/con-tu-logo2" element={<ConTuLogo2 />} /> */}
-        <Route path="egresados-y-mayoristas" element={<EgresadosMayoristas />} />
-        <Route path="egresados-y-mayoristas2" element={<EgresadosMayoristas2 />} />
+        <Route path="egresados" element={<EgresadosCatalogo />} />
 
 
         {/* PÁGINA DE PRODUCTOS */}
-        <Route path="/productos" element={<Productos />} />
+        <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/catalogo" element={<AllProducts />} />
+
 
         {/* PÁGINA DE CATÁLOGO DE PRODUCTOS */}
         <Route path="/catalogo/gorras/selector" element={<HatCategorySelector />} />
         <Route path="/catalogo/gorras" element={<HatsCatalog />} />
+        <Route path="/regaleria-empresarial" element={<RegalosEmpresarialesCatalogo />} />
+        <Route path="/articulos-promocionales" element={<ArticulosPromocionalesCatalogo />} />
 
         <Route path="/catalogo/banners/selector" element={<BannersCategorySelector />} />
         <Route path="/catalogo/banners" element={<BannersCatalog />} />

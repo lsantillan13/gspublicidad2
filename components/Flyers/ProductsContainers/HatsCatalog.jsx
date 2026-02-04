@@ -87,7 +87,7 @@ const HatsCatalog = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch('https://gsnode.onrender.com/api/products');
+        const response = await fetch('https://gserver.zeabur.app/api/products');
         if (!response.ok) throw new Error('Error al cargar productos');
         const data = await response.json();
         setProducts(data);

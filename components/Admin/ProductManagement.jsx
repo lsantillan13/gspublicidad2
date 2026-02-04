@@ -164,7 +164,7 @@ const ProductManagement = () => {
     { id: 'gorras', label: '🧢 Gorras', color: 'indigo' }
   ];
 
-  const API_URL = 'https://gsnode.onrender.com/api/products';
+  const API_URL = 'https://gserver.zeabur.app/api/products';
 
   // Cargar productos
   const fetchProducts = async () => {

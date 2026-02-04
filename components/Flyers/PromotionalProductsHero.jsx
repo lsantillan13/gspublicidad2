@@ -84,7 +84,7 @@ const PromotionalProductsHero = () => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
         
-        const response = await fetch('https://gsnode.onrender.com/api/products?featuredIn=articulos-promocionales', {
+        const response = await fetch('https://gserver.zeabur.app/api/products?featuredIn=articulos-promocionales', {
           signal: controller.signal
         });
         
@@ -338,7 +338,7 @@ const PromotionalProductsHero = () => {
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
               <Link
-                to="/promocionales"
+                to="/articulos-promocionales"
                 className="group relative inline-flex items-center justify-center hover:bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 font-bold py-3.5 sm:py-4 px-8 sm:px-12 rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 text-base sm:text-lg shadow-xl hover:shadow-2xl border border-slate-600 overflow-hidden w-full sm:w-auto text-center"
                 aria-label="Explorar catálogo completo de productos promocionales"
               >

@@ -1,8 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Geder from '../../Geder';
-import Footer from '../../Footer';
+import Geder from '../Geder.jsx';
 
 // Componente de Skeleton Loading
 const ProductCardSkeleton = () => (
@@ -23,7 +22,144 @@ const ProductCardSkeleton = () => (
   </div>
 );
 
-const BannersCatalog = () => {
+// Mapeo de parámetros URL a categorías de la API
+const CATEGORY_MAPPING = {
+  // Mapeo principal de categorías
+  'indumentaria-deportiva': {
+    apiCategory: 'INDUMENTARIA DEPORTIVA',
+    name: 'Indumentaria Deportiva',
+    icon: '⚽',
+    color: 'from-blue-500 to-cyan-500'
+  },
+  'ropa-de-trabajo': {
+    apiCategory: 'ROPA DE TRABAJO',
+    name: 'Ropa de Trabajo',
+    icon: '👷',
+    color: 'from-orange-500 to-amber-500'
+  },
+  'calzado': {
+    apiCategory: 'CALZADO',
+    name: 'Calzado',
+    icon: '👟',
+    color: 'from-gray-500 to-slate-500'
+  },
+  'indumentaria-urbana': {
+    apiCategory: 'INDUMENTARIA URBANA',
+    name: 'Indumentaria Urbana',
+    icon: '👕',
+    color: 'from-purple-500 to-pink-500'
+  },
+  'indumentaria-premium': {
+    apiCategory: 'INDUMENTARIA PREMIUM',
+    name: 'Indumentaria Premium',
+    icon: '⭐',
+    color: 'from-yellow-500 to-amber-500'
+  },
+  'regaleria-empresarial': {
+    apiCategory: 'REGALERIA EMPRESARIAL',
+    name: 'Regalería Empresarial',
+    icon: '🎁',
+    color: 'from-emerald-500 to-green-500'
+  },
+  'articulos-promocionales': {
+    apiCategory: 'ARTICULOS PROMOCIONALES',
+    name: 'Artículos Promocionales',
+    icon: '🎯',
+    color: 'from-red-500 to-rose-500'
+  },
+  'elementos-de-seguridad': {
+    apiCategory: 'ELEMENTOS DE SEGURIDAD',
+    name: 'Elementos de Seguridad',
+    icon: '🛡️',
+    color: 'from-red-600 to-orange-500'
+  },
+  'hospitalarios-limpieza': {
+    apiCategory: 'HOSPITALARIOS Y LIMPIEZA',
+    name: 'Hospitalarios y Limpieza',
+    icon: '🏥',
+    color: 'from-blue-400 to-cyan-400'
+  },
+  'publicidad-punto-fijo': {
+    apiCategory: 'PUBLICIDAD PUNTO FIJO',
+    name: 'Publicidad Punto Fijo',
+    icon: '📌',
+    color: 'from-indigo-500 to-purple-500'
+  },
+  'cocina': {
+    apiCategory: 'COCINA',
+    name: 'Cocina',
+    icon: '👨‍🍳',
+    color: 'from-orange-600 to-red-500'
+  },
+  'articulos-verano': {
+    apiCategory: 'ARTICULOS DE VERANO',
+    name: 'Artículos de Verano',
+    icon: '☀️',
+    color: 'from-yellow-400 to-orange-400'
+  },
+  'egresados': {
+    apiCategory: 'EGRESADOS',
+    name: 'Egresados',
+    icon: '🎓',
+    color: 'from-purple-600 to-pink-600'
+  },
+  
+  // Subcategorías específicas
+  'camisetas-shorts': {
+    filterFn: (product) => 
+      product.subcategory?.toLowerCase().includes('camisetas') || 
+      product.subcategory?.toLowerCase().includes('shorts'),
+    name: 'Camisetas y Shorts',
+    icon: '👕',
+    color: 'from-blue-400 to-cyan-400'
+  },
+  'camperas': {
+    filterFn: (product) => product.subcategory?.toLowerCase().includes('campera'),
+    name: 'Camperas',
+    icon: '🧥',
+    color: 'from-gray-600 to-slate-600'
+  },
+  'remeras': {
+    filterFn: (product) => product.subcategory?.toLowerCase().includes('remera'),
+    name: 'Remeras',
+    icon: '👚',
+    color: 'from-red-400 to-pink-400'
+  },
+  'botellas-tazas': {
+    filterFn: (product) => 
+      product.subcategory?.toLowerCase().includes('botella') || 
+      product.subcategory?.toLowerCase().includes('taza'),
+    name: 'Botellas y Tazas',
+    icon: '🥤',
+    color: 'from-teal-500 to-emerald-500'
+  },
+  'sombrillas': {
+    filterFn: (product) => product.subcategory?.toLowerCase().includes('sombrilla'),
+    name: 'Sombrillas',
+    icon: '☂️',
+    color: 'from-sky-500 to-blue-500'
+  },
+  // Agrega más mapeos según necesites
+};
+
+// Categorías para la navegación
+const CATEGORIES = [
+  { id: 'indumentaria-deportiva', name: 'Indumentaria Deportiva', icon: '⚽' },
+  { id: 'ropa-de-trabajo', name: 'Ropa de Trabajo', icon: '👷' },
+  { id: 'calzado', name: 'Calzado', icon: '👟' },
+  { id: 'indumentaria-urbana', name: 'Indumentaria Urbana', icon: '👕' },
+  { id: 'indumentaria-premium', name: 'Indumentaria Premium', icon: '⭐' },
+  { id: 'regaleria-empresarial', name: 'Regalería Empresarial', icon: '🎁' },
+  { id: 'articulos-promocionales', name: 'Artículos Promocionales', icon: '🎯' },
+  { id: 'elementos-de-seguridad', name: 'Elementos de Seguridad', icon: '🛡️' },
+  { id: 'hospitalarios-limpieza', name: 'Hospitalarios y Limpieza', icon: '🏥' },
+  { id: 'publicidad-punto-fijo', name: 'Publicidad Punto Fijo', icon: '📌' },
+  { id: 'cocina', name: 'Cocina', icon: '👨‍🍳' },
+  { id: 'articulos-verano', name: 'Artículos de Verano', icon: '☀️' },
+  { id: 'egresados', name: 'Egresados', icon: '🎓' },
+];
+
+const AllProducts = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -33,64 +169,21 @@ const BannersCatalog = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  // Categorías disponibles con mapeo a subcategorías de la API
-  const categories = [
-    { 
-      id: 'todos', 
-      name: 'Todo', 
-      icon: '📦', 
-      color: 'from-slate-500 to-slate-700',
-      subcategories: []
-    },
-    { 
-      id: 'banderas', 
-      name: 'Banderas', 
-      icon: '🚩', 
-      color: 'from-red-500 to-rose-500',
-      subcategories: ['Banderas']
-    },
-    { 
-      id: 'sombrillas', 
-      name: 'Sombrillas', 
-      icon: '☂️', 
-      color: 'from-blue-500 to-cyan-500',
-      subcategories: ['Sombrillas']
-    },
-    { 
-      id: 'portabanners', 
-      name: 'Portabanners', 
-      icon: '🖼️', 
-      color: 'from-emerald-500 to-green-500',
-      subcategories: ['Portabanners'] // Asumiendo que hay una subcategoría para portabanners
-    },
-    { 
-      id: 'flybanners', 
-      name: 'Fly Banners', 
-      icon: '🪁', 
-      color: 'from-purple-500 to-violet-500',
-      subcategories: ['Fly Banners'] // Asumiendo que hay una subcategoría para fly banners
-    },
-  ];
-
-  // Mapeo de subcategorías de la API a nuestras categorías del catálogo
-  const categoryMapping = {
-    'banderas': ['Banderas'],
-    'sombrillas': ['Sombrillas'],
-    'portabanners': ['Portabanners', 'Banners', 'Soportes'],
-    'flybanners': ['Fly Banners', 'Banners voladores']
-  };
-
   // Obtener categoría de la URL
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const categoryParam = params.get('categoria') || 'banderas';
+    const categoryParam = params.get('cat') || '';
     
-    // Validar que la categoría sea válida
-    const validCategory = categories.find(cat => cat.id === categoryParam) 
-      ? categoryParam 
-      : 'banderas';
-    
-    setSelectedCategory(validCategory);
+    // Si hay categoría en la URL, usarla
+    if (categoryParam && CATEGORY_MAPPING[categoryParam]) {
+      setSelectedCategory(categoryParam);
+    } else if (categoryParam) {
+      // Si la categoría existe pero no está en el mapeo, usar el valor tal cual
+      setSelectedCategory(categoryParam);
+    } else {
+      // Si no hay categoría, mostrar todas
+      setSelectedCategory('todos');
+    }
   }, [location.search]);
 
   // Fetch de productos
@@ -114,164 +207,125 @@ const BannersCatalog = () => {
     fetchProducts();
   }, []);
 
-  // Filtrar productos por categoría basado en subcategoría
+  // Filtrar productos por categoría seleccionada
   useEffect(() => {
     if (products.length > 0 && selectedCategory) {
       if (selectedCategory === 'todos') {
-        // Mostrar todos los productos de banners, sombrillas, etc.
-        const allSubcategories = [
-          ...categoryMapping.banderas,
-          ...categoryMapping.sombrillas,
-          ...categoryMapping.portabanners,
-          ...categoryMapping.flybanners
-        ];
-        const filtered = products.filter(product => 
-          allSubcategories.includes(product.subcategory) ||
-          allSubcategories.some(cat => 
-            product.name?.toLowerCase().includes(cat.toLowerCase())
-          )
-        );
-        setFilteredProducts(filtered);
+        // Mostrar todos los productos
+        setFilteredProducts(products);
       } else {
-        // Filtrar por subcategorías específicas o nombre
-        const subcategories = categoryMapping[selectedCategory] || [];
-        const filtered = products.filter(product => {
-          // Verificar subcategoría
-          if (subcategories.includes(product.subcategory)) {
-            return true;
+        const categoryConfig = CATEGORY_MAPPING[selectedCategory];
+        
+        if (categoryConfig) {
+          if (categoryConfig.apiCategory) {
+            // Filtrar por categoría principal de la API
+            const filtered = products.filter(product => 
+              product.category?.toUpperCase() === categoryConfig.apiCategory
+            );
+            setFilteredProducts(filtered);
+          } else if (categoryConfig.filterFn) {
+            // Usar función de filtro personalizada
+            const filtered = products.filter(categoryConfig.filterFn);
+            setFilteredProducts(filtered);
           }
-          
-          // Verificar si el nombre contiene palabras clave
-          const productName = product.name?.toLowerCase() || '';
-          return subcategories.some(cat => 
-            productName.includes(cat.toLowerCase())
+        } else {
+          // Si no hay configuración, intentar filtrar por nombre de categoría o subcategoría
+          const filtered = products.filter(product => 
+            product.category?.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+            product.subcategory?.toLowerCase().includes(selectedCategory.toLowerCase())
           );
-        });
-        setFilteredProducts(filtered);
+          setFilteredProducts(filtered);
+        }
       }
     }
   }, [products, selectedCategory]);
 
   // Obtener información de la categoría actual
   const currentCategory = useMemo(() => {
-    return categories.find(cat => cat.id === selectedCategory) || categories[0];
+    if (selectedCategory === 'todos') {
+      return {
+        name: 'Todos los Productos',
+        icon: '📦',
+        color: 'from-slate-500 to-gray-600'
+      };
+    }
+    
+    const categoryConfig = CATEGORY_MAPPING[selectedCategory];
+    if (categoryConfig) {
+      return {
+        name: categoryConfig.name,
+        icon: categoryConfig.icon || '📦',
+        color: categoryConfig.color || 'from-slate-500 to-gray-600'
+      };
+    }
+    
+    // Si no está en el mapeo, usar el valor tal cual
+    return {
+      name: selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1),
+      icon: '📦',
+      color: 'from-slate-500 to-gray-600'
+    };
   }, [selectedCategory]);
 
   const handleCategoryChange = (categoryId) => {
-    navigate(`/catalogo/banners?categoria=${categoryId}`);
+    if (categoryId === 'todos') {
+      navigate('/all-products');
+    } else {
+      navigate(`/all-products?cat=${categoryId}`);
+    }
   };
 
-  // Obtener color para badge basado en categoría
+  // Obtener color de categoría para el badge
   const getCategoryColor = (product) => {
-    const productName = product.name?.toLowerCase() || '';
-    const productSubcategory = product.subcategory?.toLowerCase() || '';
+    const category = product.category?.toUpperCase();
     
-    // Primero verificar por subcategoría
-    if (categoryMapping.banderas.some(cat => 
-      productSubcategory.includes(cat.toLowerCase()) ||
-      productName.includes('bandera')
-    )) {
-      return {
-        bg: 'bg-red-100',
-        text: 'text-red-700',
-        border: 'border-red-200',
-        badgeText: 'Banderas'
-      };
-    }
-    
-    if (categoryMapping.sombrillas.some(cat => 
-      productSubcategory.includes(cat.toLowerCase()) ||
-      productName.includes('sombrilla')
-    )) {
-      return {
-        bg: 'bg-blue-100',
-        text: 'text-blue-700',
-        border: 'border-blue-200',
-        badgeText: 'Sombrillas'
-      };
-    }
-    
-    if (categoryMapping.portabanners.some(cat => 
-      productSubcategory.includes(cat.toLowerCase()) ||
-      productName.includes('portabanner') ||
-      productName.includes('soporte')
-    )) {
-      return {
-        bg: 'bg-emerald-100',
-        text: 'text-emerald-700',
-        border: 'border-emerald-200',
-        badgeText: 'Portabanners'
-      };
-    }
-    
-    if (categoryMapping.flybanners.some(cat => 
-      productSubcategory.includes(cat.toLowerCase()) ||
-      productName.includes('fly') ||
-      productName.includes('volador')
-    )) {
-      return {
-        bg: 'bg-purple-100',
-        text: 'text-purple-700',
-        border: 'border-purple-200',
-        badgeText: 'Fly Banners'
-      };
-    }
-    
-    // Default
-    return {
-      bg: 'bg-slate-100',
-      text: 'text-slate-700',
-      border: 'border-slate-200',
-      badgeText: product.subcategory || 'General'
+    // Mapear colores por categoría principal
+    const colorMap = {
+      'INDUMENTARIA DEPORTIVA': 'bg-blue-100 text-blue-700 border-blue-200',
+      'ROPA DE TRABAJO': 'bg-orange-100 text-orange-700 border-orange-200',
+      'EGRESADOS': 'bg-purple-100 text-purple-700 border-purple-200',
+      'INDUMENTARIA URBANA': 'bg-purple-100 text-purple-700 border-purple-200',
+      'INDUMENTARIA PREMIUM': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+      'REGALERIA EMPRESARIAL': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+      'ARTICULOS PROMOCIONALES': 'bg-red-100 text-red-700 border-red-200',
+      'ARTICULOS DE VERANO': 'bg-yellow-100 text-yellow-700 border-yellow-200',
+      'ELEMENTOS DE SEGURIDAD': 'bg-red-100 text-red-700 border-red-200',
+      'HOSPITALARIOS Y LIMPIEZA': 'bg-blue-100 text-blue-700 border-blue-200',
+      'PUBLICIDAD PUNTO FIJO': 'bg-indigo-100 text-indigo-700 border-indigo-200',
+      'COCINA': 'bg-orange-100 text-orange-700 border-orange-200',
+      'CALZADO': 'bg-gray-100 text-gray-700 border-gray-200',
     };
+    
+    return colorMap[category] || 'bg-slate-100 text-slate-700 border-slate-200';
   };
 
-  // Extraer características del producto de la descripción
+  // Extraer características del producto
   const extractFeatures = (description) => {
     if (!description) return [];
     
-    // Buscar características comunes en la descripción
     const features = [];
     const desc = description.toLowerCase();
     
-    if (desc.includes('impermeable') || desc.includes('impermeabilidad')) {
-      features.push('Impermeable');
-    }
-    if (desc.includes('uv') || desc.includes('resisten')) {
-      features.push('UV Resistent');
-    }
-    if (desc.includes('incluye') || desc.includes('mástil') || desc.includes('soporte')) {
-      features.push('Incluye soporte');
-    }
-    if (desc.includes('plegable') || desc.includes('portátil')) {
-      features.push('Plegable');
-    }
-    if (desc.includes('personaliz') || desc.includes('logo')) {
-      features.push('Personalizable');
-    }
-    if (desc.includes('led') || desc.includes('iluminación')) {
-      features.push('Con LED');
-    }
-    if (desc.includes('doble cara') || desc.includes('ambos lados')) {
-      features.push('Doble cara');
-    }
+    if (desc.includes('impermeable')) features.push('Impermeable');
+    if (desc.includes('resisten')) features.push('Resistente');
+    if (desc.includes('personaliz')) features.push('Personalizable');
+    if (desc.includes('premium')) features.push('Premium');
+    if (desc.includes('calidad')) features.push('Alta calidad');
+    if (desc.includes('import')) features.push('Importado');
+    if (desc.includes('sublim')) features.push('Sublimado');
+    if (desc.includes('bordado')) features.push('Bordado');
     
-    // Si no encontramos características específicas, usar algunas genéricas
-    if (features.length === 0) {
-      features.push('Alta calidad', 'Durable');
-    }
-    
-    return features.slice(0, 3); // Limitar a 3 características
+    return features.slice(0, 3);
   };
 
   return (
     <>
-      <Geder/>
+      <Geder />
       
       <section className="min-h-screen bg-gradient-to-br from-slate-50 to-white block">
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-12 sm:py-16 lg:py-20 relative">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-12 sm:py-16 lg:py-20 top-16 relative">
           {/* Header con Categoría */}
-          <div className="bg-gradient-to-r from-white to-slate-50 border-b border-slate-200 top-16 relative">
+          <div className="bg-gradient-to-r from-white to-slate-50 border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -287,30 +341,27 @@ const BannersCatalog = () => {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                       </svg>
-                      Volver
+                      Volver al Inicio
                     </Link>
                     <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
                     <div className="flex items-center gap-2">
-                      <span className={`text-2xl ${
-                        selectedCategory === 'banderas' ? 'text-red-600' : 
-                        selectedCategory === 'sombrillas' ? 'text-blue-600' : 
-                        selectedCategory === 'portabanners' ? 'text-emerald-600' : 
-                        'text-purple-600'
-                      }`}>
+                      <span className="text-2xl">
                         {currentCategory.icon}
                       </span>
-                      <span className="flex text-slate-600 font-medium">Catálogo de
+                      <span className="flex text-slate-600 font-medium">
+                        Catálogo de
                         <h1 className="flex ml-1 text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-800">
-                          <span className={`not-italic bg-gradient-to-r ${currentCategory.color} bg-clip-text text-transparent`}>
+                          <i className={`not-italic bg-gradient-to-r ${currentCategory.color} bg-clip-text text-transparent`}>
                             {currentCategory.name}
-                          </span>
+                          </i>
                         </h1>
                       </span>
                     </div>
                   </div>
-                  
+
                   <p className="text-slate-600 mt-2 max-w-2xl">
-                    Descubre nuestra colección exclusiva de {currentCategory.name.toLowerCase()} publicitarios de alta calidad
+                    Descubre nuestra colección exclusiva de {currentCategory.name.toLowerCase()}. 
+                    {selectedCategory !== 'todos' && ' Productos de alta calidad y durabilidad.'}
                   </p>
                 </div>
 
@@ -329,14 +380,35 @@ const BannersCatalog = () => {
           <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-lg border-b border-slate-200 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
               <div className="flex flex-wrap gap-3">
-                {categories.map((category) => (
+                {/* Botón "Todos" */}
+                <button
+                  onClick={() => handleCategoryChange('todos')}
+                  className={`
+                    flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-300
+                    ${selectedCategory === 'todos'
+                      ? 'bg-gradient-to-r from-slate-500 to-gray-600 text-white shadow-lg'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:scale-105'
+                    }
+                  `}
+                >
+                  <span className="text-lg">📦</span>
+                  <span>Todos</span>
+                  {selectedCategory === 'todos' && (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </button>
+                
+                {/* Botones de categorías principales */}
+                {CATEGORIES.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => handleCategoryChange(category.id)}
                     className={`
                       flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-300
                       ${selectedCategory === category.id
-                        ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
+                        ? `bg-gradient-to-r ${CATEGORY_MAPPING[category.id]?.color || 'from-slate-500 to-gray-600'} text-white shadow-lg`
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:scale-105'
                       }
                     `}
@@ -376,18 +448,19 @@ const BannersCatalog = () => {
             ) : filteredProducts.length === 0 ? (
               <div className="text-center py-16">
                 <div className="inline-flex flex-col items-center gap-4 bg-gradient-to-r from-slate-50 to-blue-50 backdrop-blur-lg rounded-2xl px-8 py-12 border border-slate-200 max-w-md mx-auto">
-                  <div className={`text-5xl ${currentCategory.icon}`}></div>
+                  <div className="text-5xl">{currentCategory.icon}</div>
                   <div>
-                    <h3 className="text-xl font-semibold text-slate-700 mb-2">No hay productos en esta categoría</h3>
-                    <p className="text-slate-600 mb-6">Prueba seleccionando otra categoría</p>
+                    <h3 className="text-xl font-semibold text-slate-700 mb-2">
+                      No hay productos en esta categoría
+                    </h3>
+                    <p className="text-slate-600 mb-6">
+                      Prueba seleccionando otra categoría o vuelve más tarde
+                    </p>
                     <button
-                      onClick={() => navigate('/catalogo/banners/selector')}
+                      onClick={() => handleCategoryChange('todos')}
                       className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-700 to-slate-600 text-white font-medium px-6 py-3 rounded-lg hover:scale-105 transition-all"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                      </svg>
-                      Volver a categorías
+                      Ver todos los productos
                     </button>
                   </div>
                 </div>
@@ -401,7 +474,6 @@ const BannersCatalog = () => {
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
                 >
                   {filteredProducts.map((product, index) => {
-                    const categoryColors = getCategoryColor(product);
                     const features = extractFeatures(product.description);
                     
                     return (
@@ -450,7 +522,7 @@ const BannersCatalog = () => {
                                   {product.name}
                                 </h3>
                                 <p className="text-slate-600 text-sm line-clamp-3 min-h-[60px] mb-3">
-                                  {product.description || 'Producto publicitario de alta calidad'}
+                                  {product.description || 'Producto de alta calidad'}
                                 </p>
                               </div>
 
@@ -458,24 +530,14 @@ const BannersCatalog = () => {
                               {features.length > 0 && (
                                 <div className="mb-4 min-h-[48px]">
                                   <div className="flex flex-wrap gap-2">
-                                    {features.slice(0, 2).map((feature, idx) => (
+                                    {features.map((feature, idx) => (
                                       <span
                                         key={idx}
-                                        className={`
-                                          px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap
-                                          ${categoryColors.bg.replace('100', '50')} 
-                                          ${categoryColors.text.replace('700', '700')} 
-                                          border ${categoryColors.border.replace('200', '100')}
-                                        `}
+                                        className="px-2 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap"
                                       >
                                         {feature}
                                       </span>
                                     ))}
-                                    {features.length > 2 && (
-                                      <span className="text-slate-500 text-xs self-center">
-                                        +{features.length - 2} más
-                                      </span>
-                                    )}
                                   </div>
                                 </div>
                               )}
@@ -504,15 +566,27 @@ const BannersCatalog = () => {
                               </div>
                             </div>
 
-                            {/* Categoría Badge */}
-                            <div className="absolute top-3 right-3">
-                              <span className={`
-                                px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border whitespace-nowrap
-                                ${categoryColors.bg} ${categoryColors.text} ${categoryColors.border}
-                              `}>
-                                {categoryColors.badgeText}
-                              </span>
-                            </div>
+                            {/* Badge de categoría */}
+                            {(product.category || product.subcategory) && (
+                              <div className="absolute top-3 right-3 flex flex-col gap-2 items-end">
+                                {product.subcategory && (
+                                  <span className={`
+                                    px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border whitespace-nowrap max-w-[200px] truncate
+                                    ${getCategoryColor(product)}
+                                  `}>
+                                    {product.subcategory}
+                                  </span>
+                                )}
+                                {product.category && !product.subcategory && (
+                                  <span className={`
+                                    px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border whitespace-nowrap
+                                    ${getCategoryColor(product)}
+                                  `}>
+                                    {product.category}
+                                  </span>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </Link>
                       </motion.article>
@@ -546,24 +620,23 @@ const BannersCatalog = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
-                  <button
-                    onClick={() => navigate('/catalogo/banners/selector')}
+                  <Link
+                    to="/"
                     className="inline-flex items-center gap-3 bg-gradient-to-r from-white to-slate-50 text-slate-700 font-semibold px-8 py-3.5 rounded-xl hover:scale-105 transition-all duration-300 border border-slate-200"
                   >
-                    Ver Otras Categorías
+                    Volver al Inicio
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
-        <Footer/>
       </section>
     </>
   );
 };
 
-export default BannersCatalog;
+export default AllProducts;

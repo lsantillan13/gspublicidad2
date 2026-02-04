@@ -60,20 +60,22 @@ function Home() {
       < CapsHatsHero />
      {/* < UmbrellasFlagsHero />  */}
       {/* <IndustrialClothingHero /> */}
-      {/* <NosElijen /> */}
       {/* 
       Termos
       Set materos
       */}
       {/* <Hero /> */}
       {/* Ubico Seguridad después del Hero, antes de los catálogos */}
-      {/* <Seguridad />
+      {/*
+      */}
+       <Seguridad />
       <IndumentariaDeportiva />
       <HeroEgresados />
       <Hogar />
+      <NosElijen /> 
       <Hospitalario />
       <Marroquineria />
-      <Proceso />      */}
+      <Proceso />      
       <Footer /> 
       {/* <Whatsapp/> */}
 

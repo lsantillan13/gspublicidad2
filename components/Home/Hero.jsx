@@ -6,7 +6,7 @@ function Hero() {
   const marqueeRef = useRef(null);
 
   useEffect(() => {
-    fetch('https://gsnode.onrender.com/api/products?featuredIn=novedades')
+    fetch('https://gserver.zeabur.app/api/products?featuredIn=novedades')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

@@ -76,7 +76,7 @@ const BusinessGiftsSection = () => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
         
-        const response = await fetch('https://gsnode.onrender.com/api/products?featuredIn=regalos-empresariales', {
+        const response = await fetch('https://gserver.zeabur.app/api/products?featuredIn=regalos-empresariales', {
           signal: controller.signal
         });
         
@@ -332,7 +332,7 @@ const BusinessGiftsSection = () => {
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
               <Link
-                to="/merchandising"
+                to="/regaleria-empresarial"
                 className="group relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3.5 sm:py-4 px-8 sm:px-12 rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 text-base sm:text-lg shadow-xl sm:shadow-2xl shadow-blue-500/30 border border-white/20 overflow-hidden w-full sm:w-auto text-center"
                 aria-label="Explorar catálogo completo de regalos empresariales"
               >

@@ -16,7 +16,7 @@ function Login() {
         setError(''); // Limpia cualquier error anterior
 
     try {
-      const response = await fetch('https://gsnode.onrender.com/api/auth/login', { // <--- Usando fetch
+      const response = await fetch('https://gserver.zeabur.app/api/auth/login', { // <--- Usando fetch
         method: 'POST', // Especifica el método HTTP
         headers: {
           'Content-Type': 'application/json', // Especifica el tipo de contenido
